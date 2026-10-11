@@ -57,8 +57,9 @@ reserved terms in `assets/bird/LICENSE`. Include both with every archive and
 Homebrew installation, along with third-party notices. Finish the applicable
 acceptance checks, select a version, and review the exact release contents.
 Public visibility, public releases and a Homebrew tap require a separate user
-instruction. Older unlicensed previews also contain identifying test history;
-keep them private and rebuild the candidate from the anonymized source.
+instruction. Rebuild the candidate to include the selected licensing notices
+and anonymized current examples. The user chose to keep the existing repository
+and Git history; do not rename it or rewrite historical username references.
 
 ## Prepare a Homebrew tap formula
 

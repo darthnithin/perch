@@ -566,8 +566,10 @@ and emits its actual architecture and SHA-256 alongside offline CLI, MCP and
 PTY lifecycle results. Its temporary home prevents saved user settings from
 influencing acceptance. Pixel rendering and native fonts remain outside that
 harness. Emulated, native and live-cluster observations are recorded separately
-in the readiness audit; passing one cannot imply the others. Project licensing
-and third-party notice review are still required before public distribution.
+in the readiness audit; passing one cannot imply the others. The user selected
+MIT for code and reserved terms for Chip artwork. Both notices and the upstream
+dependency notices accompany every new archive; public distribution remains a
+separate explicit action.
 
 
 ### Experimental Nautilus command boundary

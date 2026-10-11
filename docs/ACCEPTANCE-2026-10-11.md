@@ -8,7 +8,7 @@ platforms have runtime evidence, with Mac Intel tested through Rosetta.
 
 Actual password/MFA-expiry recovery and GPU-shell behavior remain unverified.
 The user selected MIT for code and reserved Chip artwork. Public distribution
-awaits anonymized history and replacement packages. The accepted
+awaits licensed replacement packages and explicit publication approval. The accepted
 native checks should not be repeated without a relevant change.
 
 The sections below are a chronological record. Statements about pending motion
@@ -238,7 +238,10 @@ tests, not live credentials. No private Tailscale route or absolute Mac home pat
 matched. This is not a comprehensive secret audit. The user's UCSC username
 was found in test and validation documents/history. The user asked to remove it
 before publication; the current files now use a synthetic `researcher` identity.
-History cleanup and replacement archives are required before public distribution.
+The user then chose to keep the existing history and repository: only the current
+examples are anonymized. No hosted history was rewritten and no repository was
+renamed. Older username references remain in historical commits by that decision.
+Replacement packages include the new licensing notices and current examples.
 The repository remains private. The user selected MIT for code and reserved
 artwork terms for Chip; both are now included by the packaging tools.
 
@@ -246,3 +249,9 @@ The 14:55 PDT read of node-24 again showed all four P100 GPUs allocated; no new
 GPU probe was submitted. Evidence is retained in
 `output/validation/oct11-gpu-capacity-distribution.json` and
 `output/validation/publication-history-scan.json`.
+
+The complete CI run for Homebrew preparation commit `98a38ec` passed:
+[run 38178511754](https://github.com/darthnithin/perch/actions/runs/38178511754).
+It includes Go race tests, vet/formatting, MCP, dependency notices, the six
+Homebrew generator checks, all 48 terminal scripts and six-state Chip playback.
+The later hostname-only test update also passed `go test ./cmd/perch` locally.
