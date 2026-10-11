@@ -21,9 +21,13 @@ def demo():
             s.screenshot(f'software-module-{width}')
             activate(s,'esc back'); s.wait('5 modules'); s.wait('› openmpi5/5.0.10')
             s.key('\x1b[H'); s.wait('› cuda/12.8.1')
-            before=s.text
+            # Compare panel contents; the independent report-age clock can tick
+            # while a slower CI runner delivers hover events.
+            panel_text=lambda text: '\n'.join(line for line in text.splitlines() if '│' in line)
+            before=panel_text(s.text)
+            s.pump(1.1)  # Cross a report-age tick deliberately, even on fast hosts.
             move(s,*target(s,'cuda/12.8.1')); shape(s,'pointer')
-            assert before==s.text, 'hover opened a module or changed selection'
+            assert before==panel_text(s.text), 'hover opened a module or changed selection'
             click(s,*target(s,'cuda/12.8.1')); s.wait('module load cuda/12.8.1')
             s.key('\x1b'); s.resize(48,18); s.wait('› cuda/12.8.1')
             wheel(s,*target(s,'cuda/12.8.1'))
