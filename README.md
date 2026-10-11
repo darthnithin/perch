@@ -10,7 +10,7 @@
   <a href="docs/READINESS.md">Release status</a>
 </p>
 
-![Perch’s warm charcoal workspace with jobs, array progress, and Chip perched above the list](docs/media/workspace.png)
+![Perch’s warm charcoal workspace with jobs, array progress, and Chip perched above the list](docs/media/workspace.gif)
 
 Perch brings UCSC Hummingbird into one terminal workspace: prepare a workload,
 follow its progress, read its output, and open a shell inside its allocation.
@@ -102,8 +102,9 @@ VERSION=dev make release-check   # Four local archives; publishes nothing
 [Architecture](ARCHITECTURE.md) · [Release checklist](docs/RELEASING.md) ·
 [Validation history](docs/VALIDATION-HISTORY.md) · [Chip artwork](assets/bird/README.md)
 
-The workspace image is an emulator render of the real offline demo, using
-Ioskeley. Native appearance depends on your terminal. Hummingbird is the active
+The workspace preview is a looping capture of the real offline demo, rendered
+with Ioskeley at 12 pt and 0.90 line spacing through macOS CoreText.
+[View the still image](docs/media/workspace.png). Native appearance depends on your terminal. Hummingbird is the active
 product scope; existing [NRP experiments](docs/NRP.md) are preserved but deferred.
 
 Private preview. A public project/artwork license has not been selected.
