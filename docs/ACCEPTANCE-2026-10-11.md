@@ -54,14 +54,37 @@ credentials and actual password/MFA prompt handling remain unverified.
 
 ## Wing motion remains under review
 
-The user said the wings look weird and not smooth. The current source cycles
-through eight wing-tip positions at 40 ms per frame and shifts the body by one
-pixel during part of the loop. An isolated A/B/C study compares the existing
-motion, a steady body, and 16 wing positions at the same wingbeat speed. It uses
-the approved Ioskeley font and spacing and preserves body proportions. Original
-artwork and the application remain unchanged pending visual review.
+The user rejected the fixed-body and extra-position comparisons, then clarified
+that the up-and-down hover is welcome: the wing movement feels too linear.
+They requested a slower preview and suggested a spring or figure-eight stroke.
+The shipped source still cycles through eight wing-tip positions at 40 ms per
+frame and shifts the body by one pixel during part of the loop.
+
+`tools/chip_wing_study.py` now provides one isolated figure-eight study. It keeps
+the original body, head, bill, tail and hover cadence, with a 640 ms wingbeat
+(half the shipped speed). The projected wing chord narrows through the turn.
+This is a stylized periodic path, not a physical spring or flight simulation.
+All 16 stroke positions were reviewed in an Ioskeley contact sheet; the wing
+becomes nearly hidden by the head at the close end, which needs user judgment.
+The full 2.56-second GIF was decoded and compared against every rendered frame.
+PTY checks passed for quitting, SIGTERM and the narrow-window guard, including
+terminal restoration. Source artwork hashes remained unchanged. These checks
+do not establish aesthetic approval or native Terminal rendering acceptance.
+
+To inspect in the supplied Ioskeley Terminal profile:
+
+```sh
+.venv/bin/python tools/chip_wing_study.py --play
+```
+
+Space pauses, arrow keys step and `q` exits. To recreate the GIF and pose sheet
+on macOS, use `--render`. The study uses the existing local Pillow environment
+and CoreText renderer. The production animation is not replaced by this tool.
 
 Local evidence is retained under `output/validation/` (not shipped):
 `oct11-private-publication-summary.json`, `oct11-private-linux-arm-runtime/runtime.json`,
 `native-acceptance-oct11.json`, and the native notification probe receipts/logs.
-The motion study is under `output/design/wing-motion-study/`.
+Earlier comparisons remain under `output/design/wing-motion-study/` and
+`output/design/wing-arc-study/`. The latest study is under
+`output/design/wing-eight-study/`, including `preview.gif`, `poses.png` and
+`terminal-checks.json`.
