@@ -25,6 +25,24 @@ experiments. Nothing in this checklist authorizes publishing the repository.
    terminal profile and notices in every package. Source-only test evidence under
    `output/` stays local and is not included in Git or distribution archives.
 
+## Native Linux ARM verification
+
+The manual **Packaged Linux ARM runtime** workflow uses GitHub's
+`ubuntu-24.04-arm` runner. It downloads an existing private release archive;
+it does not rebuild the application or start a local VM. Dispatch
+`.github/workflows/release-runtime.yml` with the release tag, archive SHA-256 and
+packaged executable SHA-256 from your independent local archive checks. GitHub
+requires push access to see draft releases, so this manually dispatched job has
+`contents: write`; it uses the token only for downloading and never publishes
+or changes a release. Checkout does not persist credentials.
+
+The workflow verifies those hashes before execution, asserts a native Linux ARM
+host, and runs `tools/test_release_runtime.py` against the extracted executable.
+Its `linux-arm-runtime` artifact records CLI, MCP, PTY and cleanup results, the
+host architecture and executable hash. Preserve that report with the release
+evidence before its 30-day artifact retention expires. A green run covers those
+checks, not native desktop fonts or authentication to Hummingbird.
+
 ## Private preview handoff
 
 Push reviewed source to the private repository. Verify the remote is private and
