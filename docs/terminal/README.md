@@ -5,7 +5,10 @@ The user reviewed this profile and accepted its appearance on October 10, 2026.
 That acceptance covers this reference setup; it does not certify every font,
 terminal or application state.
 
-1. Install Ioskeley Mono's regular and bold fonts through Font Book, if needed.
+1. Download the standard `IoskeleyMono.zip` from the
+   [font project’s releases](https://github.com/ahatem/IoskeleyMono/releases),
+   then install its regular and bold fonts through Font Book. This profile uses
+   the standard **Ioskeley Mono** family, not the separately named Term variant.
 2. Download [Perch-Ioskeley.terminal](Perch-Ioskeley.terminal). On GitHub, use the
    file's **Download raw file** button rather than saving the HTML page.
 3. Double-click the file to import/open it in Terminal.app. It opens a normal shell.
