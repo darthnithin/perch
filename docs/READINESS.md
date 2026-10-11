@@ -2,12 +2,14 @@
 
 Current audit: October 11, 2026. **The build goal remains active.** Perch has a
 working Hummingbird workspace, CLI, read-only MCP server and explicit workload
-actions. The private draft is **`v0.1.0-preview.1`**. The application validation baseline is
-**`c89be60`** (the private preview source), with checks scoped below.
+actions. The private draft is **`v0.1.0-preview.2`**. The application validation baseline is
+**`efb9d02`** (the private preview source), with checks scoped below.
 All four packaged platforms have runtime evidence. The user confirmed ordinary
 connect/reconnect, clean exit and completion banners with the local development
-binary; actual password/MFA recovery, further native review and GPU-shell
-acceptance remain open. See the [October 11 acceptance update](ACCEPTANCE-2026-10-11.md)
+binary. On October 11 they also accepted the slower running motion and
+confirmed tab/job clicks, output scrolling, return navigation and compact resizing.
+The user accepted the hands-on experience; do not repeat the native checklist.
+Actual password/MFA recovery and GPU-shell behavior remain unverified limitations. See the [October 11 acceptance update](ACCEPTANCE-2026-10-11.md)
 for exact artifact identities and observations. The user approved the supplied Ioskeley
 terminal profile on October 10; NRP was explicitly removed from active scope,
 with its existing implementation and documentation preserved.
@@ -41,8 +43,10 @@ runtime coverage. A private draft does not close the native acceptance gates.
 
 ## Application validation baseline
 
-`output/validation/oct11-private-publication-summary.json` binds the current
-private preview archives and runtime reports to executable hashes. The earlier
+`output/validation/preview2-source.json` and the preview-2 reports listed in
+[the acceptance update](ACCEPTANCE-2026-10-11.md) bind the current private archives
+and runtime results to executable hashes. The earlier
+`output/validation/oct11-private-publication-summary.json` applies to preview 1. The earlier
 `reconciled-release-summary.json` remains historical evidence, not the identity
 of the current draft artifacts.
 
@@ -54,9 +58,15 @@ of the current draft artifacts.
 | Four archives | Checksums, target architectures, linked docs, original artwork and dependency notices passed; final documentation bundled with the tested executables |
 | Mac ARM | Packaged executable passed natively, including CLI/MCP and Hummingbird/NRP demo PTYs; search/sorting screens checked at 140, 80 and 48 columns |
 | Mac Intel | Same runtime and screen checks passed through Rosetta on Mac ARM; no claim of native Intel hardware testing |
-| Linux x86 | Current packaged executable passed on Hummingbird in job 810392, COMPLETED 0:0 in 35 seconds; temporary stage removed |
-| Linux ARM | Exact packaged executable passed CLI, MCP and PTY checks on a native aarch64 GitHub runner, [run 38172042532](https://github.com/darthnithin/perch/actions/runs/38172042532); executable hash matched |
+| Linux x86 | Current packaged executable passed on Hummingbird in job 810653, COMPLETED 0:0 in 36 seconds; temporary stage removed |
+| Linux ARM | Exact packaged executable passed CLI, MCP and PTY checks on a native aarch64 GitHub runner, [run 38177035642](https://github.com/darthnithin/perch/actions/runs/38177035642); executable hash matched |
 | Experimental NRP | Packaged Mac ARM executable passed local synthetic HTTPS, plugin authentication/recovery and PTY checks; no real NRP namespace tested |
+
+The flight-change source CI [run 38176491104](https://github.com/darthnithin/perch/actions/runs/38176491104)
+passed Go/MCP, all 48 terminal scripts and six-state Chip playback. The packaged
+source differs from that tested code only in documentation/media.
+`output/validation/preview2-publication-summary.json` records the final hashes,
+CI results, exact runtimes and private-draft verification.
 
 Source publication to the private repository is authorized; the preview artifacts
 below describe the private draft, not a public release. The earlier
@@ -112,7 +122,7 @@ for current status and the history for provenance, failures and superseded work.
 | Mac/Linux executable and eventual distribution | Four current candidate archives, checksums, doc/artwork comparison, binary target/dependency validation and runtime hash matching. Current Mac ARM, Linux x86 and Linux ARM tested natively; Mac Intel tested under Rosetta. | Repackage after further source changes; select licensing before publication. Source is tracked in the private darthnithin/perch repository. No public release or Homebrew tap is published. |
 | NRP (deferred; outside current scope) | Explicit namespace/context, typed Job/Pod/container identity, bounded HTTPS reads and log snapshots, explicit credential handling, CLI and namespace UI. Synthetic TLS/plugin/PTY coverage. See [NRP](NRP.md). | No configured context was found in the fresh local check. Quota reads, exact quantities and partial failures now have synthetic CLI/HTTPS/PTY coverage. On-demand Pod CPU/memory metrics also have synthetic parser, CLI, HTTPS and PTY coverage. Existing experimental code, tests and documentation are retained. No further NRP onboarding or implementation is required for the Hummingbird release. |
 
-## Native review to complete
+## Native review and observed limits
 
 The reference is the user's Terminal.app with Ioskeley Mono 12 pt and 0.90 line
 spacing. Perch does not change the terminal's font/profile. The user accepted the supplied
@@ -137,18 +147,22 @@ Other native checks remain scoped below.
    explicitly owned finite probe and a user-observed banner. Do not repeat
    the completed success check without a relevant delivery change.
 
-These checks supplement the automated navigation tests. No native app-control
+The user completed the normal motion/navigation review and accepted the native
+experience. The scenarios above describe the review procedure and the limits of
+what was observed, not a request to repeat that checklist. These observations
+supplement the automated navigation tests. No native app-control
 restriction has been bypassed, and a known-good older screenshot does not certify
 all current screens or states.
 
 ## Open acceptance and implementation work
 
-1. **Current native experience.** Review the complete interface and all six Chip
-   states at the user's reference Ioskeley Mono 12 pt / 0.90 line spacing. Check
-   actual pointer behavior in a supporting terminal and the Terminal.app
-   highlight fallback. The prior native-control rejection has not been bypassed.
-2. **Authentication and alerts.** Exercise real interactive sign-in/MFA expiry,
-   return to the same workspace and terminal restoration after the prompt.
+1. **Native experience accepted.** The user accepted the slower running motion
+   and normal keyboard/mouse navigation, output scrolling and compact resizing
+   in the reference Ioskeley Terminal profile on October 11. Do not repeat the
+   hands-on checklist. Other terminal/font configurations remain uncertified.
+   The prior native-control rejection has not been bypassed.
+2. **Authentication and alert limits.** Actual interactive password/MFA expiry
+   was not exercised; retain that boundary in the verification record.
    Ordinary reconnect and quit passed; completion banners and Script Editor
    identity were observed with the development binary. Failure-banner behavior
    and wider permission/Focus configurations remain unverified.

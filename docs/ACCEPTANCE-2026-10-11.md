@@ -165,10 +165,40 @@ user chose **“Keep this motion.”** This accepts the slower curved running mo
 it does not imply acceptance of every other state, view or authentication path.
 The README GIF and still now use the reviewed motion and reference font/spacing.
 The private `v0.1.0-preview.1` remains unchanged; a new candidate is being prepared.
-Source CI for `40c84d5` is tracked in run 38176491104; its result must be checked
-before treating the new animation source as CI-verified.
+Source CI for `40c84d5` passed in run 38176491104, including all 48 terminal
+scripts and six-state Chip playback.
 
 The 14:28 PDT read of Hummingbird again showed all four P100 GPUs allocated.
 No further GPU probe was submitted. The user then supplied the Tailscale SSH
 endpoint after disconnecting the campus VPN. Live checks should use that explicit
 endpoint; do not silently change the product's public Hummingbird default.
+
+## Native navigation accepted; private preview 2
+
+The user confirmed that History/Jobs clicks, changing the selected job, opening
+output, scrolling, Escape return and smaller-window resizing all behaved normally
+in their terminal. They then said **“Dude i think it's all good.”** The hands-on
+review is accepted; do not keep requesting repeated native checks. This does not
+retroactively claim that an actual password/MFA prompt or GPU shell was exercised.
+
+`v0.1.0-preview.2` is a separate private draft built from clean source
+`efb9d026fa655f6711c10ae49946273d0416c15e`. All four archive architectures,
+checksums, docs, original artwork, terminal flight strip and dependency notices
+passed verification. All five uploaded digests matched local bytes. The repository
+remained private. The approved README GIF and still were also retrieved from the
+published commit and matched byte-for-byte.
+
+Exact packaged runtime checks passed on native Mac ARM, Mac Intel through
+Rosetta, native Linux x86 and native Linux ARM. Hummingbird job **810653** used
+one CPU/256 MiB, completed 0:0 in 36 seconds, and its temporary stage was removed.
+It used the user's supplied Tailscale SSH route after VPN disconnection. Linux
+ARM ran on GitHub's native aarch64 runner in
+[run 38177035642](https://github.com/darthnithin/perch/actions/runs/38177035642).
+Both the downloaded archive and executed binary were hash-verified.
+
+Local evidence: `output/validation/preview2-source.json`, `preview2-archives.json`,
+`preview2-upload.json`, `preview2-runtime-arm64.json`, `preview2-runtime-amd64.json`,
+`preview2-linux-live.json`, `preview2-linux-arm-runtime/runtime.json`, and
+`oct11-approved-media-publication.json`. Source CI run 38176491104 completed successfully; its Go/MCP, 48 terminal
+scripts and Chip results supplement the exact packaged runtime evidence.
+The older preview 1 remains unchanged. No public release or VM was created.
