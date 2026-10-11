@@ -20,7 +20,7 @@ for target in darwin/arm64 darwin/amd64 linux/arm64 linux/amd64; do
   cp README.md ARCHITECTURE.md THIRD_PARTY_NOTICES.md "$stage/package/"
   cp -R docs examples third_party "$stage/package/"
   cp -R assets/bird "$stage/package/assets/"
-  COPYFILE_DISABLE=1 tar --format=ustar -czf "$stage/archive.tar.gz" -C "$stage/package" perch README.md ARCHITECTURE.md THIRD_PARTY_NOTICES.md third_party docs examples assets
+  COPYFILE_DISABLE=1 tar --format=ustar --exclude='.DS_Store' --exclude='._*' -czf "$stage/archive.tar.gz" -C "$stage/package" perch README.md ARCHITECTURE.md THIRD_PARTY_NOTICES.md third_party docs examples assets
   mv -f "$stage/archive.tar.gz" "dist/$name"
   rm -rf -- "$stage"
   stage=''
