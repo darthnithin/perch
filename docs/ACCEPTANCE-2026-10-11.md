@@ -121,7 +121,8 @@ UI/bird Go tests, UI vet and the build passed. Resource-step, live-step and foot
 PTY checks passed, including mouse step selection, compact resizing and cleanup.
 The Ioskeley before/after renders are in `output/design/interface-review-oct11/`.
 [CI run 38175760369](https://github.com/darthnithin/perch/actions/runs/38175760369)
-tests this source change; its final conclusion is not yet recorded here.
+completed successfully for this source change, including the full terminal and
+Chip checks.
 The private draft still packages `c89be60` and does not include this newer layout.
 
 ## Refined flight integrated into the local application
@@ -156,3 +157,18 @@ archives still contain their earlier animation and have not been replaced.
 `output/design/wing-eight-workspace/validation.json` binds the reviewed binary,
 terminal strip, authoring script, profile and GIF to SHA-256 hashes. All 64
 exported frames matched the study, and all 21 original-artwork checksums passed.
+
+## User accepted the integrated flight · October 11
+
+After being asked to run the updated demo in the Ioskeley Terminal profile, the
+user chose **“Keep this motion.”** This accepts the slower curved running motion;
+it does not imply acceptance of every other state, view or authentication path.
+The README GIF and still now use the reviewed motion and reference font/spacing.
+The private `v0.1.0-preview.1` remains unchanged; a new candidate is being prepared.
+Source CI for `40c84d5` is tracked in run 38176491104; its result must be checked
+before treating the new animation source as CI-verified.
+
+The 14:28 PDT read of Hummingbird again showed all four P100 GPUs allocated.
+No further GPU probe was submitted. The user then supplied the Tailscale SSH
+endpoint after disconnecting the campus VPN. Live checks should use that explicit
+endpoint; do not silently change the product's public Hummingbird default.

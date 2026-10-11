@@ -25,7 +25,8 @@ in [validation history](VALIDATION-HISTORY.md).
 Source is published to the [private repository](https://github.com/darthnithin/perch).
 The README includes a looping workspace GIF and a high-resolution PNG fallback,
 rendered from real PTY output with Ioskeley Mono 12 pt and 0.90 line spacing.
-The GIF retains 64 samples over 2.56 seconds. Original detailed Chip assets remain
+The GIF retains 64 samples over 1.28 seconds; the user accepted the slower
+curved flight in the reference Terminal profile on October 11. Original detailed Chip assets remain
 unchanged. See [media provenance](media/README.md) for reproduction and limits.
 
 The software hover regression now compares panel contents and deliberately crosses
@@ -49,7 +50,7 @@ of the current draft artifacts.
 | --- | --- |
 | Source checks | Full Go race suite, vet and formatting passed after the reconciliation and explanation-wrapping changes |
 | Terminal regression | All 48 scripts passed, including navigation, mouse, workload actions, 5,000-task arrays, copy/activity/cache and attempt regressions |
-| Chip playback | All six states, relative cadence, pause, aligned stepping and the faster running sample passed; emulator render reviewed |
+| Chip playback | All six states, relative cadence, pause, aligned stepping and the slower curved running sample passed locally; emulator render reviewed and native running motion accepted |
 | Four archives | Checksums, target architectures, linked docs, original artwork and dependency notices passed; final documentation bundled with the tested executables |
 | Mac ARM | Packaged executable passed natively, including CLI/MCP and Hummingbird/NRP demo PTYs; search/sorting screens checked at 140, 80 and 48 columns |
 | Mac Intel | Same runtime and screen checks passed through Rosetta on Mac ARM; no claim of native Intel hardware testing |
@@ -95,7 +96,7 @@ for current status and the history for provenance, failures and superseded work.
 | Requirement | Current implementation and evidence | Remaining boundary |
 | --- | --- | --- |
 | Beautiful, calm interface inspired by Claude Code and superfile | Warm charcoal/cream/peach, top tabs, persistent command input, rounded boxes, responsive lists and inspectors; Ioskeley previews. `internal/ui`; latest visual/process evidence below. User accepted the border fix and described the 12-pt tight Chip view as “quite good.” | Reference-profile appearance approved by the user; wider native behavior remains scoped below. The wordmark remains deliberately deferred. Quality comparable to the inspirations is not proved by passing tests. |
-| Preserve and refine Chip; animations and size | Approved D/stronger-wing octant rendition, fixed 15×7 footprint, six states, 64 frames each, running at 40 ms and other states at 80 ms, one-shot completion, reduced motion. Detailed original assets are checksum-protected in `assets/bird`. Fresh preview test passed. | User rejected the wing motion; a slower figure-eight study with the original hover awaits review. Native review across all states at the reference font/spacing; other terminals/fonts are not certified. Harmonica remains an optional transition tool, not a replacement for approved frame animation. |
+| Preserve and refine Chip; animations and size | Approved D/stronger-wing octant rendition, fixed 15×7 footprint, six states, 64 frames each, running samples at 20 ms through a 640 ms curved stroke and other states at 80 ms, one-shot completion, reduced motion. Detailed original assets are checksum-protected in `assets/bird`. Fresh preview test passed. | User accepted the integrated slower curved wing motion with the original hover on October 11. Native review across all states at the reference font/spacing; other terminals/fonts are not certified. Harmonica remains an optional transition tool, not a replacement for approved frame animation. |
 | Easy keyboard and mouse navigation | Shared draw/hit geometry, tabs, job selection, help, slash input, global palette, job-specific action menu, log scrolling, compact controls and exit restoration. `tools/test_terminal.py`, `test_mouse.py`, `test_hover.py`, `test_footer.py`, `test_job_actions.py`. | Native pointer/interaction acceptance. Terminal.app uses hover highlights; OSC 22 shapes are enabled only for detected supporting terminals. |
 | Connect → inspect → logs → disconnect → reconnect | First-connection setup, system SSH, private multiplexing, batch background reads, foreground authentication, retained snapshots/output, backoff and stale-response rejection. `internal/transport`, `internal/ui`; live backend and synthetic-SSH PTY checks. | Actual interactive password/MFA expiry and recovery in the user's terminal. Fake SSH reconnect tests do not close that gate. |
 | Correct Slurm state, arrays, accounting and attempts | Explicit v0.0.44 parser, set/unset/infinite values, logical versus allocation IDs, range/step separation, attempt identity, accounting lag and missing-array summaries. Domain/app/adapter tests and scrubbed Hummingbird fixtures. | Future Slurm schemas remain explicitly unsupported until tested; heterogeneous/federated mutations are refused. |
@@ -120,8 +121,8 @@ On October 11 the user confirmed a loaded live workspace, normal quit and
 reconnect, and a visible completion banner under Script Editor. Those observations
 apply to the development binary recorded in the [acceptance update](ACCEPTANCE-2026-10-11.md).
 Actual password/MFA prompts, failure banners and the remaining visual interactions
-remain separate checks. The user rejected the current wing motion; the slower
-figure-eight study is awaiting review.
+remain separate checks. The user accepted the integrated slower curved wing motion on October 11.
+Other native checks remain scoped below.
 
 1. Run `./bin/perch --demo --no-config` from the source checkout, or
    `./perch --demo --no-config` from the extracted preview. Check Chip's movement,
