@@ -56,3 +56,29 @@ Choose the project and artwork licenses explicitly, finish the remaining
 acceptance gates, select a version, and review the exact release contents.
 Third-party notices do not license Perch itself. Public visibility, public
 releases and a Homebrew tap require a separate user instruction.
+
+## Prepare a Homebrew tap formula
+
+An independently maintained tap can install the prebuilt archives without Go.
+Generate its formula from a checked release directory:
+
+```sh
+python3 tools/homebrew_formula.py v0.1.0-preview.2 --archives dist
+make homebrew-test
+HOMEBREW_NO_AUTO_UPDATE=1 brew ruby tools/test_homebrew_formula.rb \
+  output/homebrew/perch.rb dist v0.1.0-preview.2
+```
+
+The generator verifies all four archive checksums before writing the formula.
+The Ruby check uses Homebrew's platform selection and install helpers with a
+temporary prefix, verifies the bundled files, and smoke-tests the Mac binaries
+on a Mac (Intel via Rosetta on Apple Silicon). It does not exercise the complete
+`brew install`, linking, upgrade, uninstall, or `brew test` lifecycle, and it
+does not install a tap or modify terminal preferences.
+
+After distribution is authorized, publish accessible release assets and place
+the generated file at `Formula/perch.rb` in `darthnithin/homebrew-tap`. The
+intended command is `brew install darthnithin/tap/perch`; that tap is not yet
+published. Draft release URLs are not working public downloads. Validate the
+full installation and upgrade lifecycle against the published assets before
+advertising the command. See the [Homebrew tap guide](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap).

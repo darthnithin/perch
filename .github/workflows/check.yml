@@ -17,7 +17,7 @@ jobs:
         with:
           go-version-file: go.mod
           cache: true
-      - run: make check mcp-test notices-check
+      - run: make check mcp-test notices-check homebrew-test
   terminal:
     name: Terminal interaction and Chip
     runs-on: macos-latest

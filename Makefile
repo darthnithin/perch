@@ -1,4 +1,4 @@
-.PHONY: build test vet check demo terminal-test chip-test shell-test cancel-test mcp-test nrp-test nrp-ui-test release release-check notices-check
+.PHONY: build test vet check demo terminal-test chip-test shell-test cancel-test mcp-test nrp-test nrp-ui-test release release-check notices-check homebrew-test
 
 build:
 	go build -trimpath -o bin/perch ./cmd/perch
@@ -90,6 +90,9 @@ release-check: release
 
 notices-check:
 	python3 tools/notices.py --check
+
+homebrew-test:
+	python3 tools/test_homebrew_generator.py
 
 nrp-test: build
 	python3 tools/test_nrp_prepare.py
