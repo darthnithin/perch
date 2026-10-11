@@ -1,0 +1,326 @@
+{
+  "jobs": [
+    {
+      "job_id": 9101,
+      "array_job_id": {
+        "set": true,
+        "infinite": false,
+        "number": 9100
+      },
+      "array_task_id": {
+        "set": true,
+        "infinite": false,
+        "number": 39
+      },
+      "array_task_string": "",
+      "name": "simulation-sweep",
+      "job_state": [
+        "RUNNING"
+      ],
+      "state_reason": "None",
+      "partition": "128x24",
+      "nodes": "node-14",
+      "user_name": "researcher",
+      "cluster": "hummingbird",
+      "submit_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596253
+      },
+      "eligible_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596296
+      },
+      "start_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791599547
+      },
+      "end_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791606747
+      },
+      "suspend_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "pre_sus_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "time_limit": {
+        "set": true,
+        "infinite": false,
+        "number": 120
+      },
+      "cpus": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "node_count": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "memory_per_cpu": {
+        "set": false,
+        "infinite": false,
+        "number": 0
+      },
+      "memory_per_node": {
+        "set": true,
+        "infinite": false,
+        "number": 4096
+      },
+      "restart_cnt": 0,
+      "exit_code": {
+        "status": [
+          "SUCCESS"
+        ],
+        "return_code": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "signal": {
+          "id": {
+            "set": false,
+            "infinite": false,
+            "number": 0
+          },
+          "name": ""
+        }
+      },
+      "standard_output": "/home/researcher/experiments/logs/sweep-%A_%a.out",
+      "standard_error": "",
+      "stdout_expanded": "/home/researcher/experiments/logs/sweep-9100_39.out",
+      "stderr_expanded": "",
+      "current_working_directory": "/home/researcher/experiments"
+    },
+    {
+      "job_id": 9102,
+      "array_job_id": {
+        "set": true,
+        "infinite": false,
+        "number": 9100
+      },
+      "array_task_id": {
+        "set": true,
+        "infinite": false,
+        "number": 40
+      },
+      "array_task_string": "",
+      "name": "simulation-sweep",
+      "job_state": [
+        "RUNNING"
+      ],
+      "state_reason": "None",
+      "partition": "128x24",
+      "nodes": "node-09",
+      "user_name": "researcher",
+      "cluster": "hummingbird",
+      "submit_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596253
+      },
+      "eligible_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596296
+      },
+      "start_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791599577
+      },
+      "end_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791606777
+      },
+      "suspend_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "pre_sus_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "time_limit": {
+        "set": true,
+        "infinite": false,
+        "number": 120
+      },
+      "cpus": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "node_count": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "memory_per_cpu": {
+        "set": false,
+        "infinite": false,
+        "number": 0
+      },
+      "memory_per_node": {
+        "set": true,
+        "infinite": false,
+        "number": 4096
+      },
+      "restart_cnt": 0,
+      "exit_code": {
+        "status": [
+          "SUCCESS"
+        ],
+        "return_code": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "signal": {
+          "id": {
+            "set": false,
+            "infinite": false,
+            "number": 0
+          },
+          "name": ""
+        }
+      },
+      "standard_output": "/home/researcher/experiments/logs/sweep-%A_%a.out",
+      "standard_error": "",
+      "stdout_expanded": "/home/researcher/experiments/logs/sweep-9100_40.out",
+      "stderr_expanded": "",
+      "current_working_directory": "/home/researcher/experiments"
+    },
+    {
+      "job_id": 9103,
+      "array_job_id": {
+        "set": true,
+        "infinite": false,
+        "number": 9100
+      },
+      "array_task_id": {
+        "set": true,
+        "infinite": false,
+        "number": 41
+      },
+      "array_task_string": "",
+      "name": "simulation-sweep",
+      "job_state": [
+        "RUNNING"
+      ],
+      "state_reason": "None",
+      "partition": "128x24",
+      "nodes": "node-14",
+      "user_name": "researcher",
+      "cluster": "hummingbird",
+      "submit_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596253
+      },
+      "eligible_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791596296
+      },
+      "start_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791599607
+      },
+      "end_time": {
+        "set": true,
+        "infinite": false,
+        "number": 1791606807
+      },
+      "suspend_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "pre_sus_time": {
+        "set": true,
+        "infinite": false,
+        "number": 0
+      },
+      "time_limit": {
+        "set": true,
+        "infinite": false,
+        "number": 120
+      },
+      "cpus": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "node_count": {
+        "set": true,
+        "infinite": false,
+        "number": 1
+      },
+      "memory_per_cpu": {
+        "set": false,
+        "infinite": false,
+        "number": 0
+      },
+      "memory_per_node": {
+        "set": true,
+        "infinite": false,
+        "number": 4096
+      },
+      "restart_cnt": 0,
+      "exit_code": {
+        "status": [
+          "SUCCESS"
+        ],
+        "return_code": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "signal": {
+          "id": {
+            "set": false,
+            "infinite": false,
+            "number": 0
+          },
+          "name": ""
+        }
+      },
+      "standard_output": "/home/researcher/experiments/logs/sweep-%A_%a.out",
+      "standard_error": "",
+      "stdout_expanded": "/home/researcher/experiments/logs/sweep-9100_41.out",
+      "stderr_expanded": "",
+      "current_working_directory": "/home/researcher/experiments"
+    }
+  ],
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    },
+    "slurm": {
+      "version": {
+        "major": "25",
+        "micro": "4",
+        "minor": "11"
+      },
+      "release": "25.11.4",
+      "cluster": "hummingbird"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

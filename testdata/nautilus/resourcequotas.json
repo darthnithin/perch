@@ -1,0 +1,27 @@
+{
+  "apiVersion": "v1", "kind": "ResourceQuotaList",
+  "metadata": {"resourceVersion": "opaque/quotas:105"},
+  "items": [
+    {
+      "metadata": {"namespace": "research", "name": "compute", "uid": "quota-compute"},
+      "spec": {"hard": {"requests.cpu": "32", "requests.memory": "128Gi", "requests.nvidia.com/gpu": "4", "pods": "100"}},
+      "status": {
+        "hard": {"requests.cpu": "32", "requests.memory": "128Gi", "requests.nvidia.com/gpu": "4", "pods": "100"},
+        "used": {"requests.cpu": "7500m", "requests.memory": "49152Mi", "requests.nvidia.com/gpu": "4", "pods": "12"}
+      }
+    },
+    {
+      "metadata": {"namespace": "research", "name": "interactive", "uid": "quota-interactive"},
+      "spec": {
+        "hard": {"requests.cpu": "8", "requests.memory": "16Gi"},
+        "scopeSelector": {"matchExpressions": [{"scopeName": "PriorityClass", "operator": "In", "values": ["interactive"]}]}
+      },
+      "status": {"hard": {"requests.cpu": "8", "requests.memory": "16Gi"}, "used": {"requests.cpu": "2", "requests.memory": "4Gi"}}
+    },
+    {
+      "metadata": {"namespace": "research", "name": "storage-update", "uid": "quota-storage"},
+      "spec": {"hard": {"requests.storage": "2Ti", "persistentvolumeclaims": "20"}},
+      "status": {"hard": {"requests.storage": "1Ti", "persistentvolumeclaims": "20"}, "used": {"requests.storage": "800Gi"}}
+    }
+  ]
+}

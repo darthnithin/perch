@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "size": [
+    32,
+    32
+  ],
+  "frame_ms": 80,
+  "frame_count": 64,
+  "states": {
+    "idle": {
+      "strip": "idle-strip.png",
+      "poster": 0,
+      "playback": "loop"
+    },
+    "running": {
+      "strip": "running-strip.png",
+      "poster": 1,
+      "playback": "loop"
+    },
+    "queued": {
+      "strip": "queued-strip.png",
+      "poster": 8,
+      "playback": "loop"
+    },
+    "complete": {
+      "strip": "complete-strip.png",
+      "poster": 11,
+      "playback": "once_then_idle"
+    },
+    "attention": {
+      "strip": "attention-strip.png",
+      "poster": 0,
+      "playback": "loop"
+    },
+    "reconnecting": {
+      "strip": "reconnecting-strip.png",
+      "poster": 23,
+      "playback": "loop"
+    }
+  }
+}

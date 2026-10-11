@@ -1,0 +1,606 @@
+{
+  "source": "Production CLI probes on Hummingbird, 2026-10-10. Only scope fields retained; username replaced with researcher. Metadata from the same session read-only queue response.",
+  "cases": [
+    {
+      "case": "held-job",
+      "stage": "before",
+      "parent": "802778",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802778,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_id": {
+              "set": false,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656648
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "PENDING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "running-job",
+      "stage": "before",
+      "parent": "802779",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802779,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_id": {
+              "set": false,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656662
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656666
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "RUNNING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "held-array",
+      "stage": "before",
+      "parent": "802780",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802780,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802780
+            },
+            "array_task_id": {
+              "set": false,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "0-1",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656682
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "PENDING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "held-array",
+      "stage": "sibling_remained",
+      "parent": "802780",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802780,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802780
+            },
+            "array_task_id": {
+              "set": false,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "1",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656682
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "PENDING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "running-array",
+      "stage": "before",
+      "parent": "802781",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802782,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802781
+            },
+            "array_task_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656703
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656726
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "RUNNING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          },
+          {
+            "job_id": 802781,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802781
+            },
+            "array_task_id": {
+              "set": true,
+              "infinite": false,
+              "number": 1
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656703
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656726
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "RUNNING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "running-array",
+      "stage": "sibling_remained",
+      "parent": "802781",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802781,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802781
+            },
+            "array_task_id": {
+              "set": true,
+              "infinite": false,
+              "number": 1
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656703
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656726
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "RUNNING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "case": "mixed-array",
+      "stage": "before",
+      "parent": "802788",
+      "response": {
+        "meta": {
+          "plugin": {
+            "type": "",
+            "name": "",
+            "data_parser": "data_parser/v0.0.44",
+            "accounting_storage": "accounting_storage/slurmdbd"
+          },
+          "slurm": {
+            "version": {
+              "major": "25",
+              "micro": "4",
+              "minor": "11"
+            },
+            "release": "25.11.4",
+            "cluster": "hummingbird"
+          }
+        },
+        "jobs": [
+          {
+            "job_id": 802790,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802788
+            },
+            "array_task_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656885
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656906
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "RUNNING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          },
+          {
+            "job_id": 802788,
+            "array_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 802788
+            },
+            "array_task_id": {
+              "set": false,
+              "infinite": false,
+              "number": 0
+            },
+            "array_task_string": "1%1",
+            "user_name": "researcher",
+            "name": "perch-cancel-cli",
+            "cluster": "hummingbird",
+            "submit_time": {
+              "set": true,
+              "infinite": false,
+              "number": 1791656885
+            },
+            "start_time": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "restart_cnt": 0,
+            "job_state": [
+              "PENDING"
+            ],
+            "het_job_id": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_offset": {
+              "set": true,
+              "infinite": false,
+              "number": 0
+            },
+            "het_job_id_set": "",
+            "federation_origin": "",
+            "federation_siblings_active": "",
+            "federation_siblings_viable": ""
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "jobs": [
+    {
+      "job_id": 9001,
+      "name": "single-simulation",
+      "cluster": "hummingbird",
+      "user": "researcher",
+      "partition": "128x24",
+      "nodes": "node-22",
+      "array": {
+        "job_id": 9000,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 0
+            }
+          }
+        },
+        "task_id": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "task": ""
+      },
+      "state": {
+        "current": [
+          "COMPLETED"
+        ],
+        "reason": "None"
+      },
+      "time": {
+        "elapsed": 494,
+        "eligible": 1791595473,
+        "end": 1791595990,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 23
+        },
+        "start": 1791595496,
+        "submission": 1791595472,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 143284
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 120
+        },
+        "total": {
+          "seconds": 490,
+          "microseconds": 282971
+        },
+        "user": {
+          "seconds": 490,
+          "microseconds": 139687
+        }
+      },
+      "required": {
+        "CPUs": 1,
+        "memory_per_cpu": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "memory_per_node": {
+          "set": true,
+          "infinite": false,
+          "number": 2048
+        }
+      },
+      "allocation_nodes": 1,
+      "restart_cnt": 0,
+      "exit_code": {
+        "status": [
+          "SUCCESS"
+        ],
+        "return_code": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "signal": {
+          "id": {
+            "set": false,
+            "infinite": false,
+            "number": 0
+          },
+          "name": ""
+        }
+      },
+      "stdout": "/home/researcher/experiments/logs/sim-%A_%a.out",
+      "stderr": "",
+      "stdout_expanded": "/home/researcher/experiments/logs/sim-9000_0.out",
+      "stderr_expanded": "",
+      "working_directory": "/home/researcher/experiments",
+      "tres": {
+        "allocated": [
+          {
+            "type": "cpu",
+            "name": "",
+            "id": 1,
+            "count": 1
+          },
+          {
+            "type": "mem",
+            "name": "",
+            "id": 2,
+            "count": 2048
+          },
+          {
+            "type": "node",
+            "name": "",
+            "id": 4,
+            "count": 1
+          },
+          {
+            "type": "billing",
+            "name": "",
+            "id": 5,
+            "count": 1
+          }
+        ],
+        "requested": [
+          {
+            "type": "cpu",
+            "name": "",
+            "id": 1,
+            "count": 1
+          },
+          {
+            "type": "mem",
+            "name": "",
+            "id": 2,
+            "count": 2048
+          },
+          {
+            "type": "node",
+            "name": "",
+            "id": 4,
+            "count": 1
+          },
+          {
+            "type": "billing",
+            "name": "",
+            "id": 5,
+            "count": 1
+          }
+        ]
+      },
+      "steps": [
+        {
+          "step": {
+            "id": "9001.batch",
+            "name": "batch"
+          },
+          "state": [
+            "COMPLETED"
+          ],
+          "tasks": {
+            "count": 1
+          },
+          "time": {
+            "total": {
+              "seconds": 490,
+              "microseconds": 282971
+            }
+          },
+          "tres": {
+            "requested": {
+              "max": [
+                {
+                  "type": "cpu",
+                  "name": "",
+                  "id": 1,
+                  "count": 490282,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "mem",
+                  "name": "",
+                  "id": 2,
+                  "count": 49397760,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "energy",
+                  "name": "",
+                  "id": 3,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "fs",
+                  "name": "disk",
+                  "id": 6,
+                  "count": 86859633,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "vmem",
+                  "name": "",
+                  "id": 7,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "pages",
+                  "name": "",
+                  "id": 8,
+                  "count": 63,
+                  "task": 0,
+                  "node": "node-22"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "step": {
+            "id": "9001.extern",
+            "name": "extern"
+          },
+          "state": [
+            "COMPLETED"
+          ],
+          "tasks": {
+            "count": 1
+          },
+          "time": {
+            "total": {
+              "seconds": 0,
+              "microseconds": 0
+            }
+          },
+          "tres": {
+            "requested": {
+              "max": [
+                {
+                  "type": "energy",
+                  "name": "",
+                  "id": 3,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    },
+    "slurm": {
+      "version": {
+        "major": "25",
+        "micro": "4",
+        "minor": "11"
+      },
+      "release": "25.11.4",
+      "cluster": "hummingbird"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

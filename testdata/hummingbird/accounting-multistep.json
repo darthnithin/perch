@@ -1,0 +1,296 @@
+{
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    }
+  },
+  "errors": [],
+  "jobs": [
+    {
+      "array": {
+        "job_id": 0,
+        "task_id": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "task": ""
+      },
+      "state": {
+        "current": [
+          "COMPLETED"
+        ],
+        "reason": "None"
+      },
+      "time": {
+        "elapsed": 8,
+        "eligible": 1791625461,
+        "end": 1791625476,
+        "start": 1791625468,
+        "submission": 1791625461,
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 1
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 1296842
+        }
+      },
+      "required": {
+        "CPUs": 2,
+        "memory_per_cpu": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "memory_per_node": {
+          "set": true,
+          "infinite": false,
+          "number": 256
+        }
+      },
+      "allocation_nodes": 2,
+      "tres": {
+        "allocated": [
+          {
+            "type": "cpu",
+            "name": "",
+            "id": 1,
+            "count": 2
+          },
+          {
+            "type": "mem",
+            "name": "",
+            "id": 2,
+            "count": 512
+          },
+          {
+            "type": "node",
+            "name": "",
+            "id": 4,
+            "count": 2
+          },
+          {
+            "type": "billing",
+            "name": "",
+            "id": 5,
+            "count": 2
+          }
+        ],
+        "requested": [
+          {
+            "type": "cpu",
+            "name": "",
+            "id": 1,
+            "count": 2
+          },
+          {
+            "type": "mem",
+            "name": "",
+            "id": 2,
+            "count": 512
+          },
+          {
+            "type": "node",
+            "name": "",
+            "id": 4,
+            "count": 2
+          },
+          {
+            "type": "billing",
+            "name": "",
+            "id": 5,
+            "count": 2
+          }
+        ]
+      },
+      "restart_cnt": 0,
+      "job_id": 9400,
+      "name": "mpi-fixture",
+      "user": "researcher",
+      "cluster": "hummingbird",
+      "nodes": "node-[21-22]",
+      "partition": "128x24",
+      "steps": [
+        {
+          "state": [
+            "COMPLETED"
+          ],
+          "tasks": {
+            "count": 1
+          },
+          "time": {
+            "total": {
+              "seconds": 0,
+              "microseconds": 837101
+            }
+          },
+          "tres": {
+            "requested": {
+              "max": [
+                {
+                  "type": "cpu",
+                  "name": "",
+                  "id": 1,
+                  "count": 851,
+                  "task": 0,
+                  "node": "node-21"
+                },
+                {
+                  "type": "mem",
+                  "name": "",
+                  "id": 2,
+                  "count": 31154176,
+                  "task": 0,
+                  "node": "node-21"
+                },
+                {
+                  "type": "energy",
+                  "name": "",
+                  "id": 3,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-21"
+                },
+                {
+                  "type": "fs",
+                  "name": "disk",
+                  "id": 6,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-21"
+                },
+                {
+                  "type": "vmem",
+                  "name": "",
+                  "id": 7,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-21"
+                },
+                {
+                  "type": "pages",
+                  "name": "",
+                  "id": 8,
+                  "count": 74,
+                  "task": 0,
+                  "node": "node-21"
+                }
+              ]
+            }
+          },
+          "step": {
+            "id": "9400.batch",
+            "name": "batch"
+          }
+        },
+        {
+          "state": [
+            "COMPLETED"
+          ],
+          "tasks": {
+            "count": 2
+          },
+          "time": {
+            "total": {
+              "seconds": 0,
+              "microseconds": 0
+            }
+          },
+          "tres": {
+            "requested": {
+              "max": [
+                {
+                  "type": "energy",
+                  "name": "",
+                  "id": 3,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-21"
+                }
+              ]
+            }
+          },
+          "step": {
+            "id": "9400.extern",
+            "name": "extern"
+          }
+        },
+        {
+          "state": [
+            "COMPLETED"
+          ],
+          "tasks": {
+            "count": 1
+          },
+          "time": {
+            "total": {
+              "seconds": 0,
+              "microseconds": 459741
+            }
+          },
+          "tres": {
+            "requested": {
+              "max": [
+                {
+                  "type": "cpu",
+                  "name": "",
+                  "id": 1,
+                  "count": 459,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "mem",
+                  "name": "",
+                  "id": 2,
+                  "count": 27254784,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "energy",
+                  "name": "",
+                  "id": 3,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "fs",
+                  "name": "disk",
+                  "id": 6,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "vmem",
+                  "name": "",
+                  "id": 7,
+                  "count": 0,
+                  "task": 0,
+                  "node": "node-22"
+                },
+                {
+                  "type": "pages",
+                  "name": "",
+                  "id": 8,
+                  "count": 72,
+                  "task": 0,
+                  "node": "node-22"
+                }
+              ]
+            }
+          },
+          "step": {
+            "id": "9400.0",
+            "name": "prted"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "nodes": [
+    {
+      "name": "node-06",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-07",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-08",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 14,
+      "alloc_idle_cpus": 10,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-09",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-10",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 18,
+      "alloc_idle_cpus": 6,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-11",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 14,
+      "alloc_idle_cpus": 10,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-12",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 16,
+      "alloc_idle_cpus": 8,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-13",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 14,
+      "alloc_idle_cpus": 10,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-14",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-15",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "ALLOCATED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 24,
+      "alloc_idle_cpus": 0,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-16",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "ALLOCATED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 24,
+      "alloc_idle_cpus": 0,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-17",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-18",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "ALLOCATED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 24,
+      "alloc_idle_cpus": 0,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-19",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 20,
+      "alloc_idle_cpus": 4,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-20",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-21",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED",
+        "PLANNED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 9,
+      "alloc_idle_cpus": 15,
+      "real_memory": 122880,
+      "alloc_memory": 122880,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-22",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "ALLOCATED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 24,
+      "alloc_idle_cpus": 0,
+      "real_memory": 122880,
+      "alloc_memory": 107343,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-23",
+      "partitions": [
+        "128x24"
+      ],
+      "state": [
+        "MIXED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 23,
+      "alloc_idle_cpus": 1,
+      "real_memory": 122880,
+      "alloc_memory": 120544,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    },
+    {
+      "name": "node-24",
+      "partitions": [
+        "96x24gpu4"
+      ],
+      "state": [
+        "MIXED"
+      ],
+      "cpus": 24,
+      "alloc_cpus": 4,
+      "alloc_idle_cpus": 20,
+      "real_memory": 94200,
+      "alloc_memory": 65536,
+      "specialized_memory": 0,
+      "gres": "gpu:p100:4",
+      "gres_used": "gpu:p100:4(IDX:0-3)"
+    },
+    {
+      "name": "node-25",
+      "partitions": [
+        "256x44"
+      ],
+      "state": [
+        "IDLE"
+      ],
+      "cpus": 44,
+      "alloc_cpus": 0,
+      "alloc_idle_cpus": 44,
+      "real_memory": 252952,
+      "alloc_memory": 0,
+      "specialized_memory": 0,
+      "gres": "",
+      "gres_used": ""
+    }
+  ]
+}

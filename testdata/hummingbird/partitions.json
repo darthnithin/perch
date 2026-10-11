@@ -1,0 +1,124 @@
+{
+  "sinfo": [
+    {
+      "partition": {
+        "name": "128x24",
+        "nodes": {
+          "configured": "node-[06-23]"
+        },
+        "partition": {
+          "state": [
+            "UP"
+          ]
+        }
+      },
+      "nodes": {
+        "total": 17,
+        "idle": 0
+      },
+      "cpus": {
+        "allocated": 225,
+        "idle": 183,
+        "total": 408
+      },
+      "gres": {
+        "total": "",
+        "used": ""
+      }
+    },
+    {
+      "partition": {
+        "name": "128x24",
+        "nodes": {
+          "configured": "node-[06-23]"
+        },
+        "partition": {
+          "state": [
+            "UP"
+          ]
+        }
+      },
+      "nodes": {
+        "total": 1,
+        "idle": 0
+      },
+      "cpus": {
+        "allocated": 24,
+        "idle": 0,
+        "total": 24
+      },
+      "gres": {
+        "total": "",
+        "used": ""
+      }
+    },
+    {
+      "partition": {
+        "name": "96x24gpu4",
+        "nodes": {
+          "configured": "node-24"
+        },
+        "partition": {
+          "state": [
+            "UP"
+          ]
+        }
+      },
+      "nodes": {
+        "total": 1,
+        "idle": 0
+      },
+      "cpus": {
+        "allocated": 4,
+        "idle": 20,
+        "total": 24
+      },
+      "gres": {
+        "total": "gpu:p100:4",
+        "used": "gpu:p100:4(IDX:0-3)"
+      }
+    },
+    {
+      "partition": {
+        "name": "256x44",
+        "nodes": {
+          "configured": "node-25"
+        },
+        "partition": {
+          "state": [
+            "UP"
+          ]
+        }
+      },
+      "nodes": {
+        "total": 1,
+        "idle": 0
+      },
+      "cpus": {
+        "allocated": 40,
+        "idle": 4,
+        "total": 44
+      },
+      "gres": {
+        "total": "",
+        "used": ""
+      }
+    }
+  ],
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    },
+    "slurm": {
+      "version": {
+        "major": "25",
+        "micro": "4",
+        "minor": "11"
+      },
+      "release": "25.11.4",
+      "cluster": "hummingbird"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

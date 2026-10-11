@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    }
+  },
+  "jobs": [
+    {
+      "job_id": 9400,
+      "array": {
+        "job_id": 9400,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 1
+            }
+          }
+        },
+        "task_id": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "task": "0x2"
+      },
+      "state": {
+        "current": [
+          "CANCELLED"
+        ],
+        "reason": "None"
+      },
+      "restart_cnt": 0,
+      "time": {
+        "elapsed": 0,
+        "eligible": 4294967295,
+        "end": 1791630928,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "start": 4294967294,
+        "submission": 1791630911,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 0
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 2
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 0
+        },
+        "user": {
+          "seconds": 0,
+          "microseconds": 0
+        }
+      },
+      "name": "synthetic-array",
+      "user": "researcher",
+      "cluster": "hummingbird",
+      "partition": "128x24"
+    }
+  ]
+}

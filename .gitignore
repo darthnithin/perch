@@ -1,0 +1,16 @@
+/bin/
+/dist/
+/output/
+*.test
+coverage.out
+.DS_Store
+/.venv/
+
+# Local developer caches, credentials and captures.
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*.prof
+*.trace

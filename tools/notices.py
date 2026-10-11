@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""Collect upstream notice files for the exact four release dependency graphs.
+
+No license guessing or project-license selection. Inputs are the local Go
+module cache/toolchain and the pinned supplemental Unicode notice.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+
+ROOT = Path(__file__).resolve().parents[1]
+TARGETS = ['darwin/arm64', 'darwin/amd64', 'linux/arm64', 'linux/amd64']
+PREFIXES = ('LICENSE', 'LICENCE', 'COPYING', 'NOTICE', 'PATENTS')
+
+
+def run(*args, env=None):
+    return subprocess.check_output(args, cwd=ROOT, env=env, text=True)
+
+
+def objects(text):
+    decoder = json.JSONDecoder()
+    while text.strip():
+        text = text.lstrip()
+        obj, end = decoder.raw_decode(text)
+        yield obj
+        text = text[end:]
+
+
+def notice_files(folder):
+    return sorted(p for p in folder.rglob('*')
+                  if p.is_file() and p.name.upper().startswith(PREFIXES))
+
+
+def collect():
+    goroot = Path(run('go', 'env', 'GOROOT').strip()).resolve()
+    version = run('go', 'env', 'GOVERSION').strip()
+    modules, standard_dirs = {}, set()
+    for target in TARGETS:
+        system, arch = target.split('/')
+        env = dict(os.environ, GOOS=system, GOARCH=arch, CGO_ENABLED='0')
+        for package in objects(run('go', 'list', '-mod=readonly', '-deps', '-json', './cmd/perch', env=env)):
+            module = package.get('Module')
+            if package.get('Standard') and package.get('Dir'):
+                standard_dirs.add(Path(package['Dir']).resolve())
+            if not module or module.get('Main'):
+                continue
+            if module.get('Replace'):
+                raise ValueError('Review replaced module before packaging: '+module['Path'])
+            key = (module['Path'], module['Version'])
+            entry = modules.setdefault(key, {'dir': Path(module['Dir']), 'targets': set()})
+            entry['targets'].add(target)
+
+    payload, entries = {}, []
+
+    def add(name, release, targets, files, source=None):
+        if not files or not any(Path(label).name.upper().startswith(('LICENSE', 'LICENCE', 'COPYING')) for label, _ in files):
+            raise ValueError('Missing upstream license text: '+name)
+        entry = {'component': name, 'version': release, 'targets': sorted(targets), 'notices': []}
+        if source:
+            entry['source'] = source
+        identifier = hashlib.sha256((name+'@'+release).encode()).hexdigest()[:16]
+        for label, path in sorted(files):
+            data = path.read_bytes()
+            if not data or len(data) > 2 << 20:
+                raise ValueError('Empty or unexpectedly large notice: '+str(path))
+            file_id = hashlib.sha256(label.encode()).hexdigest()[:12]
+            dest = f'third_party/{identifier}/{file_id}.txt'
+            if dest in payload:
+                raise ValueError('Notice path collision: '+dest)
+            payload[dest] = data
+            entry['notices'].append({'original_path': label, 'file': dest,
+                                     'sha256': hashlib.sha256(data).hexdigest()})
+        entries.append(entry)
+
+    for (name, release), module in sorted(modules.items()):
+        folder = module['dir']
+        add(name, release, module['targets'], [(p.relative_to(folder).as_posix(), p) for p in notice_files(folder)])
+
+    # Homebrew puts Go's root LICENSE beside libexec rather than inside GOROOT.
+    go_license = goroot/'LICENSE'
+    if not go_license.is_file():
+        go_license = goroot.parent/'LICENSE'
+    if not go_license.is_file():
+        raise ValueError('Go toolchain LICENSE was not found')
+    go_files = {'LICENSE': go_license}
+    if (goroot/'PATENTS').is_file():
+        go_files['PATENTS'] = goroot/'PATENTS'
+    # Include separate notices in the ancestry of every linked standard/vendor
+    # package. Tool-only dependencies and testdata are not part of this graph.
+    for folder in standard_dirs:
+        while folder != goroot and folder.is_relative_to(goroot):
+            for path in folder.iterdir():
+                if path.is_file() and path.name.upper().startswith(PREFIXES):
+                    go_files[path.relative_to(goroot).as_posix()] = path
+            folder = folder.parent
+    add('Go runtime and standard library', version, TARGETS, list(go_files.items()))
+    # Unicode-derived segmentation/width tables carry a separate data notice.
+    add('Unicode data', 'license-v3-snapshot-2026-10-10', TARGETS,
+        [('LICENSE', ROOT/'tools/licenses/UNICODE-LICENSE.txt')],
+        source='https://www.unicode.org/license.txt')
+    entries.sort(key=lambda e: e['component'])
+    manifest = {'schema_version': 1, 'targets': TARGETS, 'components': entries}
+    payload['third_party/manifest.json'] = (json.dumps(manifest, indent=2)+'\n').encode()
+    lines = ['# Third-party notices', '',
+             'Generated by `python3 tools/notices.py` from the release dependency graphs.',
+             'Upstream notice texts are copied without alteration. This inventory does not',
+             "select a license for Perch or Chip, or constitute a final licensing review.", '',
+             'The bundle includes all notice files shipped in each linked Go module, plus',
+             'Go runtime/standard-library notices and a pinned supplemental Unicode notice.',
+             'Some module notices also cover files not linked into this binary. Fonts used',
+             'by local preview tools are not bundled in the release archives.', '',
+             'Targets: '+', '.join(TARGETS)+'.', '',
+             '[Machine-readable inventory and SHA-256 hashes](third_party/manifest.json)', '']
+    for entry in entries:
+        lines.extend(['## '+entry['component'], '', '`'+entry['version']+'`', ''])
+        if entry.get('source'):
+            lines.extend(['[Upstream source]('+entry['source']+')', ''])
+        for notice in entry['notices']:
+            lines.append('- ['+notice['original_path']+']('+notice['file']+')')
+        lines.append('')
+    payload['THIRD_PARTY_NOTICES.md'] = ('\n'.join(lines)+'\n').encode()
+    return payload, manifest
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='fail if saved notices differ; write nothing')
+    args = parser.parse_args()
+    payload, manifest = collect()
+    differences = [name for name, data in payload.items() if not (ROOT/name).is_file() or (ROOT/name).read_bytes() != data]
+    existing = {p.relative_to(ROOT).as_posix() for p in (ROOT/'third_party').rglob('*') if p.is_file()}
+    extras = existing-set(payload)
+    if extras:
+        raise ValueError('Review obsolete/unrecognized notice files before regenerating: '+', '.join(sorted(extras)))
+    if args.check:
+        if differences:
+            raise ValueError('Notices need regeneration: '+', '.join(differences))
+    else:
+        for name, data in payload.items():
+            path = ROOT/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+    print(f'{len(manifest["components"])} components; {len(payload)-2} notice texts; four target graphs; '+('verified' if args.check else 'generated'))
+
+
+if __name__ == '__main__':
+    main()

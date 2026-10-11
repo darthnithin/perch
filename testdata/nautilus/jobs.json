@@ -1,0 +1,27 @@
+{
+  "apiVersion": "batch/v1", "kind": "JobList",
+  "metadata": {"resourceVersion": "opaque/jobs:100"},
+  "items": [
+    {"metadata": {"namespace": "research", "name": "retrying", "uid": "job-retry", "creationTimestamp": "2026-10-10T10:00:00Z"},
+     "spec": {"parallelism": 1, "completions": 1},
+     "status": {"active": 1, "failed": 1, "startTime": "2026-10-10T10:00:01Z"}},
+    {"metadata": {"namespace": "research", "name": "indexed", "uid": "job-indexed"},
+     "spec": {"parallelism": 4, "completions": 1000000, "completionMode": "Indexed"},
+     "status": {"active": 4, "succeeded": 999990, "failed": 3, "completedIndexes": "0-999989", "failedIndexes": "999993"}},
+    {"metadata": {"namespace": "research", "name": "finishing", "uid": "job-finishing"},
+     "spec": {"completions": 1},
+     "status": {"succeeded": 1, "terminating": 1, "conditions": [{"type": "SuccessCriteriaMet", "status": "True", "reason": "CompletionsReached"}]}},
+    {"metadata": {"namespace": "research", "name": "finished", "uid": "job-finished"},
+     "spec": {"completions": 1},
+     "status": {"succeeded": 1, "conditions": [{"type": "Complete", "status": "True", "lastTransitionTime": "2026-10-10T10:03:00Z"}], "completionTime": "2026-10-10T10:03:00Z"}},
+    {"metadata": {"namespace": "research", "name": "failed", "uid": "job-failed"},
+     "spec": {"completions": 1},
+     "status": {"failed": 3, "conditions": [{"type": "Failed", "status": "True", "reason": "BackoffLimitExceeded", "message": "Job has reached the specified backoff limit"}]}},
+    {"metadata": {"namespace": "research", "name": "recreated", "uid": "job-new"}, "spec": {"parallelism": 1}, "status": {}},
+    {"metadata": {"namespace": "research", "name": "failing", "uid": "job-failing"},
+     "spec": {"completions": 1},
+     "status": {"terminating": 1, "conditions": [{"type": "FailureTarget", "status": "True", "reason": "PodFailurePolicy"}]}},
+    {"metadata": {"namespace": "research", "name": "suspended", "uid": "job-suspended"},
+     "spec": {"suspend": true}, "status": {"conditions": [{"type": "Suspended", "status": "True"}]}}
+  ]
+}

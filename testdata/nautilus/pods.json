@@ -1,0 +1,22 @@
+{
+  "apiVersion": "v1", "kind": "PodList", "metadata": {"resourceVersion": "opaque/pods:105"},
+  "items": [
+    {"metadata": {"namespace": "research", "name": "retrying-old", "uid": "pod-old", "ownerReferences": [{"apiVersion": "batch/v1", "kind": "Job", "name": "retrying", "uid": "job-retry", "controller": true}]},
+     "spec": {"containers": [{"name": "compute", "image": "python:3.13"}]},
+     "status": {"phase": "Failed", "containerStatuses": [{"name": "compute", "ready": false, "restartCount": 0, "state": {"terminated": {"reason": "OOMKilled", "exitCode": 137, "finishedAt": "2026-10-10T10:01:00Z"}}}]}},
+    {"metadata": {"namespace": "research", "name": "retrying-replacement", "uid": "pod-replacement", "creationTimestamp": "2026-10-10T10:00:00Z", "ownerReferences": [{"apiVersion": "batch/v1", "kind": "Job", "name": "retrying", "uid": "job-retry", "controller": true}]},
+     "spec": {"nodeName": "fixture-node", "containers": [{"name": "compute", "image": "python:3.13"}, {"name": "results", "image": "busybox:1.37"}], "initContainers": [{"name": "prepare", "image": "busybox:1.37"}, {"name": "log-helper", "image": "busybox:1.37", "restartPolicy": "Always"}]},
+     "status": {"phase": "Running", "startTime": "2026-10-10T10:01:02Z",
+       "containerStatuses": [{"name": "results", "ready": false, "restartCount": 0, "state": {"waiting": {"reason": "ImagePullBackOff", "message": "Back-off pulling image"}}}, {"name": "compute", "ready": true, "started": true, "restartCount": 2, "state": {"running": {"startedAt": "2026-10-10T10:01:30Z"}}, "lastState": {"terminated": {"exitCode": 137, "reason": "OOMKilled"}}}],
+       "initContainerStatuses": [{"name": "prepare", "ready": false, "restartCount": 0, "state": {"terminated": {"exitCode": 0, "reason": "Completed"}}}, {"name": "log-helper", "ready": true, "restartCount": 0, "state": {"running": {}}}]}},
+    {"metadata": {"namespace": "research", "name": "pending", "uid": "pod-pending", "annotations": {"batch.kubernetes.io/job-completion-index": "999990"}, "ownerReferences": [{"apiVersion": "batch/v1", "kind": "Job", "name": "indexed", "uid": "job-indexed", "controller": true}]},
+     "spec": {"containers": [{"name": "compute", "image": "python:3.13"}]},
+     "status": {"phase": "Pending", "conditions": [{"type": "PodScheduled", "status": "False", "reason": "Unschedulable", "message": "Insufficient nvidia.com/gpu"}]}},
+    {"metadata": {"namespace": "research", "name": "recreated-orphan", "uid": "pod-orphan", "labels": {"job-name": "recreated"}, "ownerReferences": [{"apiVersion": "batch/v1", "kind": "Job", "name": "recreated", "uid": "job-deleted", "controller": true}]},
+     "spec": {"containers": [{"name": "compute", "image": "python:3.13"}]},
+     "status": {"phase": "Succeeded", "containerStatuses": [{"name": "compute", "state": {"terminated": {"exitCode": 0}}}]}},
+    {"metadata": {"namespace": "research", "name": "standalone", "uid": "pod-standalone", "labels": {"job-name": "recreated"}},
+     "spec": {"containers": [{"name": "main", "image": "python:3.13"}], "ephemeralContainers": [{"name": "debug", "image": "busybox:1.37"}]},
+     "status": {"phase": "Running", "ephemeralContainerStatuses": [{"name": "debug", "restartCount": 0, "state": {"running": {}}}]}}
+  ]
+}

@@ -1,0 +1,892 @@
+{
+  "schema_version": 1,
+  "targets": [
+    "darwin/arm64",
+    "darwin/amd64",
+    "linux/arm64",
+    "linux/amd64"
+  ],
+  "components": [
+    {
+      "component": "Go runtime and standard library",
+      "version": "go1.27.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/58c61d678dc0dffe/c693279643b8.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "PATENTS",
+          "file": "third_party/58c61d678dc0dffe/c0e932614391.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "src/crypto/internal/boring/LICENSE",
+          "file": "third_party/58c61d678dc0dffe/8afc94681ead.txt",
+          "sha256": "56210f826b8f0fbac3160dfe55c97f4019eb6cdda3963b5a0eab8a8bdb62360e"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/crypto/LICENSE",
+          "file": "third_party/58c61d678dc0dffe/d213c40cdf6c.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/crypto/PATENTS",
+          "file": "third_party/58c61d678dc0dffe/71d2c6028636.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/net/LICENSE",
+          "file": "third_party/58c61d678dc0dffe/d8f09edaee07.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/net/PATENTS",
+          "file": "third_party/58c61d678dc0dffe/486a3766844e.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/sys/LICENSE",
+          "file": "third_party/58c61d678dc0dffe/9e90aa5035b0.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/sys/PATENTS",
+          "file": "third_party/58c61d678dc0dffe/415d3e65a021.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/text/LICENSE",
+          "file": "third_party/58c61d678dc0dffe/0b90193ef705.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "src/vendor/golang.org/x/text/PATENTS",
+          "file": "third_party/58c61d678dc0dffe/5821edb48c12.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        }
+      ]
+    },
+    {
+      "component": "Unicode data",
+      "version": "license-v3-snapshot-2026-10-10",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/f9a39b6d010c4e52/c693279643b8.txt",
+          "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+        }
+      ],
+      "source": "https://www.unicode.org/license.txt"
+    },
+    {
+      "component": "charm.land/bubbles/v2",
+      "version": "v2.2.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/50d866f3d213432e/c693279643b8.txt",
+          "sha256": "373b3931e66627aadcfebd7771df93f3439203147e587a924508c63e20184d7f"
+        }
+      ]
+    },
+    {
+      "component": "charm.land/bubbletea/v2",
+      "version": "v2.1.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/1b007dad48ed193e/c693279643b8.txt",
+          "sha256": "373b3931e66627aadcfebd7771df93f3439203147e587a924508c63e20184d7f"
+        }
+      ]
+    },
+    {
+      "component": "charm.land/lipgloss/v2",
+      "version": "v2.0.6",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/66f476b5784f28e2/c693279643b8.txt",
+          "sha256": "3f531fb89f23b218fbe16b24fb5950418fa1f0046db5cfddb2c1e0d6d39bfcc0"
+        }
+      ]
+    },
+    {
+      "component": "github.com/NimbleMarkets/ntcharts",
+      "version": "v0.5.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE.txt",
+          "file": "third_party/4195807bef143ae9/d0ed4cc3fb70.txt",
+          "sha256": "c17e22284e1e661b2ee7a20481ee71e43c89f263deda929de33fa07f7a55cd08"
+        }
+      ]
+    },
+    {
+      "component": "github.com/atotto/clipboard",
+      "version": "v0.1.4",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/d74d458fa0dc9894/c693279643b8.txt",
+          "sha256": "2c4bac8e2a97180d6e7758c37de85d1cda1859aaf85b56da15d935d2d9a5564f"
+        }
+      ]
+    },
+    {
+      "component": "github.com/aymanbagabas/go-osc52/v2",
+      "version": "v2.0.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/19b89158afbd20c6/c693279643b8.txt",
+          "sha256": "11319e34d9dac2f45392f14f4f62e28b24173cfa13d39b32e7b7b66c2f3bdccd"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/bubbles",
+      "version": "v0.20.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/a6e891697f0a94ec/c693279643b8.txt",
+          "sha256": "9ca49aaf6748976a8f0a9d7448f34a5f5edf1f363385f1a789e09e328c3d3f84"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/bubbletea",
+      "version": "v1.2.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/700d0e5b44a898b3/c693279643b8.txt",
+          "sha256": "9ca49aaf6748976a8f0a9d7448f34a5f5edf1f363385f1a789e09e328c3d3f84"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/colorprofile",
+      "version": "v0.4.3",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/9d12fd5a0eda1054/c693279643b8.txt",
+          "sha256": "57d6eeeb336030b89c0e0d12cf869f84b97a481cd00b350ef21fca995da5a39a"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/lipgloss",
+      "version": "v1.0.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/26e97774d3c641b1/c693279643b8.txt",
+          "sha256": "699cffa88b62691ea09706d356e5ee0982e87ca2b1c58ca682f27d6ae87f9efc"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/ultraviolet",
+      "version": "v0.0.0-20261008173134-6b8d4baf91b4",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/de6aca21dcc3976d/c693279643b8.txt",
+          "sha256": "8a77c755a1d1fbdc932e86f0449549121820b6f4cc1234b12fcfc8d38013c1de"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/x/ansi",
+      "version": "v0.11.9",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/0589f79755a7be65/c693279643b8.txt",
+          "sha256": "0baa4a5942a801d93f4050d2bc0039d8c037105fcd335230d118eec99a11782b"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/x/term",
+      "version": "v0.2.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/55e9dd059a4bc2ec/c693279643b8.txt",
+          "sha256": "0baa4a5942a801d93f4050d2bc0039d8c037105fcd335230d118eec99a11782b"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/x/termios",
+      "version": "v0.1.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/974fe6ab114a9b59/c693279643b8.txt",
+          "sha256": "0baa4a5942a801d93f4050d2bc0039d8c037105fcd335230d118eec99a11782b"
+        }
+      ]
+    },
+    {
+      "component": "github.com/charmbracelet/x/windows",
+      "version": "v0.2.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/77fa13de45c25b07/c693279643b8.txt",
+          "sha256": "0baa4a5942a801d93f4050d2bc0039d8c037105fcd335230d118eec99a11782b"
+        }
+      ]
+    },
+    {
+      "component": "github.com/clipperhouse/displaywidth",
+      "version": "v0.11.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/d8b118233a909d7f/c693279643b8.txt",
+          "sha256": "fcdcc889a11c39c73d36019b838af41b418eb7811af12b746ace40c3074bb96c"
+        }
+      ]
+    },
+    {
+      "component": "github.com/clipperhouse/uax29/v2",
+      "version": "v2.7.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/4fd601d1d188212e/c693279643b8.txt",
+          "sha256": "07e9e3daaccc707c9b7d535ed1405a65d37919fdd42197fe55e68820e974688c"
+        }
+      ]
+    },
+    {
+      "component": "github.com/fxamacker/cbor/v2",
+      "version": "v2.9.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/c9e014cab0360cea/c693279643b8.txt",
+          "sha256": "78cad457d5ea7318230f3d969d4cdf29cef45524a1fc8ca3a97646da1ad7a841"
+        }
+      ]
+    },
+    {
+      "component": "github.com/go-logr/logr",
+      "version": "v1.4.3",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/aacaa3d73f8a1a00/c693279643b8.txt",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ]
+    },
+    {
+      "component": "github.com/google/jsonschema-go",
+      "version": "v0.4.3",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/8fd6c021619e70d9/c693279643b8.txt",
+          "sha256": "2d56c53449691d85d9aea245eb8dac12713e9075d70d5557b82ae1e94805b357"
+        }
+      ]
+    },
+    {
+      "component": "github.com/lrstanley/bubblezone",
+      "version": "v0.0.0-20240914071701-b48c55a5e78e",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/14f48dc631a3cdc6/c693279643b8.txt",
+          "sha256": "6eb930e35d1cbefd165f0f39d80790a40c5b75a8755a0d2e87a5a64c65898bea"
+        }
+      ]
+    },
+    {
+      "component": "github.com/lucasb-eyer/go-colorful",
+      "version": "v1.4.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/ae679cb7a782be72/c693279643b8.txt",
+          "sha256": "1e4cf2a117516ec1b54041d68ed4f5d331878b04de3386f4790e7b5b9c04e1ec"
+        }
+      ]
+    },
+    {
+      "component": "github.com/mattn/go-isatty",
+      "version": "v0.0.20",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/b24aeb3102146d70/c693279643b8.txt",
+          "sha256": "08eab1118c80885fa1fa6a6dd7303f65a379fcb3733e063d20d1bbc2c76e6fa1"
+        }
+      ]
+    },
+    {
+      "component": "github.com/mattn/go-runewidth",
+      "version": "v0.0.30",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/deed4c3928f6dceb/c693279643b8.txt",
+          "sha256": "88a2379b3ca34bf5c57127aff9dcb802bbb60ece0805cdbda65b3bd115f971d9"
+        }
+      ]
+    },
+    {
+      "component": "github.com/modelcontextprotocol/go-sdk",
+      "version": "v1.8.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/cab43a47320b1dd9/c693279643b8.txt",
+          "sha256": "af679003d933f045393a6a029f43da113f9ae364eac651d9ae268392985580f5"
+        }
+      ]
+    },
+    {
+      "component": "github.com/muesli/ansi",
+      "version": "v0.0.0-20230316100256-276c6243b2f6",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/341a939a81fced14/c693279643b8.txt",
+          "sha256": "43f65e00e8919fa43c5f45bb2ae578b6d3ee823eb99aa14c85c9ecd06e0350b5"
+        }
+      ]
+    },
+    {
+      "component": "github.com/muesli/cancelreader",
+      "version": "v0.2.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/c052f69517dbb13a/c693279643b8.txt",
+          "sha256": "8c139dbbc83b4fb055b4100b6b9402f7de3dd6bbca05015bdfcc4b392c8cfd5f"
+        }
+      ]
+    },
+    {
+      "component": "github.com/muesli/termenv",
+      "version": "v0.15.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/b6b9a94cf8a404fd/c693279643b8.txt",
+          "sha256": "233e8cf9a812999ccee4d3edb270b0f11ab3539658e680bcb873604915ca5038"
+        }
+      ]
+    },
+    {
+      "component": "github.com/rivo/uniseg",
+      "version": "v0.4.7",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE.txt",
+          "file": "third_party/10a5b277238545ab/d0ed4cc3fb70.txt",
+          "sha256": "a59885f5f0f3b3c07cf9444db5fe399b6f0791eac82055f7b85cc65500551039"
+        }
+      ]
+    },
+    {
+      "component": "github.com/segmentio/asm",
+      "version": "v1.1.3",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/b477ab01a906328e/c693279643b8.txt",
+          "sha256": "e2a78de21d6d8ded2dff0f3189cd32e011630d785da127ebfbc8949012c0947b"
+        }
+      ]
+    },
+    {
+      "component": "github.com/segmentio/encoding",
+      "version": "v0.5.4",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/d6f7d28ef6a8851b/c693279643b8.txt",
+          "sha256": "d6d71a1f7dc6539e371120cc7af6e3257e55ca79634d473211f217b8965b0f16"
+        },
+        {
+          "original_path": "json/fuzz/LICENSE",
+          "file": "third_party/d6f7d28ef6a8851b/0b4c70501063.txt",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ]
+    },
+    {
+      "component": "github.com/x448/float16",
+      "version": "v0.8.4",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/bf5b0184ba5ef37b/c693279643b8.txt",
+          "sha256": "a555f1194fdac34da70fb416968f7e2217b02352c26c1eac2fa45fcb4290ae8d"
+        }
+      ]
+    },
+    {
+      "component": "github.com/xo/terminfo",
+      "version": "v1.0.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/7c83e7e6a5892898/c693279643b8.txt",
+          "sha256": "1f5f51151ba96f0492ce288bd007242f924fdad9f04002e175e951644340a891"
+        }
+      ]
+    },
+    {
+      "component": "github.com/yosida95/uritemplate/v3",
+      "version": "v3.0.2",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/21341595d074f008/c693279643b8.txt",
+          "sha256": "0761aadfb1921103752869ee942d4a71bdd54494697684d4b13dc17ad9781191"
+        }
+      ]
+    },
+    {
+      "component": "golang.org/x/oauth2",
+      "version": "v0.35.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/109339290ce3d234/c693279643b8.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        }
+      ]
+    },
+    {
+      "component": "golang.org/x/sync",
+      "version": "v0.22.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/af94cab6dfaad845/c693279643b8.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "PATENTS",
+          "file": "third_party/af94cab6dfaad845/c0e932614391.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        }
+      ]
+    },
+    {
+      "component": "golang.org/x/sys",
+      "version": "v0.47.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/dc957412cc909276/c693279643b8.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "PATENTS",
+          "file": "third_party/dc957412cc909276/c0e932614391.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        }
+      ]
+    },
+    {
+      "component": "golang.org/x/time",
+      "version": "v0.15.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/45c2972ee85c68bd/c693279643b8.txt",
+          "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+        },
+        {
+          "original_path": "PATENTS",
+          "file": "third_party/45c2972ee85c68bd/c0e932614391.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        }
+      ]
+    },
+    {
+      "component": "gopkg.in/inf.v0",
+      "version": "v0.9.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/1f23527798bb5f3c/c693279643b8.txt",
+          "sha256": "050855d9ceedf916a9e9f30d20c6f61a484448d2c2ed5810934bc8aef43861b4"
+        }
+      ]
+    },
+    {
+      "component": "k8s.io/apimachinery",
+      "version": "v0.37.1",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/fcb6761287e7b603/c693279643b8.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "original_path": "third_party/forked/golang/LICENSE",
+          "file": "third_party/fcb6761287e7b603/b0885d1ebfbe.txt",
+          "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067"
+        },
+        {
+          "original_path": "third_party/forked/golang/PATENTS",
+          "file": "third_party/fcb6761287e7b603/e96d4722251b.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        }
+      ]
+    },
+    {
+      "component": "k8s.io/klog/v2",
+      "version": "v2.140.0",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/e036543ab2b7b117/c693279643b8.txt",
+          "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68"
+        }
+      ]
+    },
+    {
+      "component": "k8s.io/utils",
+      "version": "v0.0.0-20260626114624-be93311217bd",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/7a5654f9033ca892/c693279643b8.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "original_path": "inotify/LICENSE",
+          "file": "third_party/7a5654f9033ca892/0508b490624f.txt",
+          "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067"
+        },
+        {
+          "original_path": "inotify/PATENTS",
+          "file": "third_party/7a5654f9033ca892/44bf3bff74e2.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "internal/third_party/forked/golang/LICENSE",
+          "file": "third_party/7a5654f9033ca892/edff1e841ac4.txt",
+          "sha256": "dd26a7abddd02e2d0aba97805b31f248ef7835d9e10da289b22e3b8ab78b324d"
+        },
+        {
+          "original_path": "internal/third_party/forked/golang/PATENTS",
+          "file": "third_party/7a5654f9033ca892/3f42ed4ab544.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "third_party/forked/golang/LICENSE",
+          "file": "third_party/7a5654f9033ca892/b0885d1ebfbe.txt",
+          "sha256": "dd26a7abddd02e2d0aba97805b31f248ef7835d9e10da289b22e3b8ab78b324d"
+        },
+        {
+          "original_path": "third_party/forked/golang/PATENTS",
+          "file": "third_party/7a5654f9033ca892/e96d4722251b.txt",
+          "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc"
+        },
+        {
+          "original_path": "third_party/forked/golang/btree/LICENSE",
+          "file": "third_party/7a5654f9033ca892/2dab46d61d85.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        }
+      ]
+    },
+    {
+      "component": "sigs.k8s.io/json",
+      "version": "v0.0.0-20250730193827-2d320260d730",
+      "targets": [
+        "darwin/amd64",
+        "darwin/arm64",
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "notices": [
+        {
+          "original_path": "LICENSE",
+          "file": "third_party/4c9cde43ba7b3c98/c693279643b8.txt",
+          "sha256": "ef523ecf6292d4b80e02e6003dcbaf386e774efe70e8607ad762b1437d1f383b"
+        }
+      ]
+    }
+  ]
+}

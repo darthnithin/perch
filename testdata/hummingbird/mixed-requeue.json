@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    }
+  },
+  "jobs": [
+    {
+      "job_id": 9502,
+      "array": {
+        "job_id": 9500,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 0
+            }
+          }
+        },
+        "task_id": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "task": ""
+      },
+      "state": {
+        "current": [
+          "PENDING",
+          "REQUEUED"
+        ],
+        "reason": "None"
+      },
+      "restart_cnt": 0,
+      "time": {
+        "elapsed": 10,
+        "eligible": 1791631144,
+        "end": 1791631176,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 22
+        },
+        "start": 1791631166,
+        "submission": 1791631144,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 9017
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 2
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 19946
+        },
+        "user": {
+          "seconds": 0,
+          "microseconds": 10929
+        }
+      },
+      "name": "synthetic-requeue",
+      "user": "researcher",
+      "cluster": "hummingbird",
+      "partition": "128x24"
+    },
+    {
+      "job_id": 9500,
+      "array": {
+        "job_id": 9500,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 1
+            }
+          }
+        },
+        "task_id": {
+          "set": true,
+          "infinite": false,
+          "number": 1
+        },
+        "task": ""
+      },
+      "state": {
+        "current": [
+          "COMPLETED"
+        ],
+        "reason": "JobArrayTaskLimit"
+      },
+      "restart_cnt": 0,
+      "time": {
+        "elapsed": 3,
+        "eligible": 1791631179,
+        "end": 1791631199,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 17
+        },
+        "start": 1791631196,
+        "submission": 1791631144,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 10135
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 2
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 20494
+        },
+        "user": {
+          "seconds": 0,
+          "microseconds": 10359
+        }
+      },
+      "name": "synthetic-requeue",
+      "user": "researcher",
+      "cluster": "hummingbird",
+      "partition": "128x24"
+    },
+    {
+      "job_id": 9502,
+      "array": {
+        "job_id": 9500,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 0
+            }
+          }
+        },
+        "task_id": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "task": ""
+      },
+      "state": {
+        "current": [
+          "COMPLETED"
+        ],
+        "reason": "BeginTime"
+      },
+      "restart_cnt": 1,
+      "time": {
+        "elapsed": 3,
+        "eligible": 1791631300,
+        "end": 1791631319,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 16
+        },
+        "start": 1791631316,
+        "submission": 1791631179,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 9705
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 2
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 22900
+        },
+        "user": {
+          "seconds": 0,
+          "microseconds": 13195
+        }
+      },
+      "name": "synthetic-requeue",
+      "user": "researcher",
+      "cluster": "hummingbird",
+      "partition": "128x24"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "plugin": {
+      "data_parser": "data_parser/v0.0.44"
+    }
+  },
+  "errors": [],
+  "jobs": [
+    {
+      "job_id": 920001,
+      "name": "cancelled-dependency",
+      "state": {
+        "current": [
+          "CANCELLED"
+        ],
+        "reason": "None"
+      },
+      "time": {
+        "elapsed": 0,
+        "eligible": 0,
+        "end": 1791623055,
+        "planned": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "start": 4294967294,
+        "submission": 1791623036,
+        "suspended": 0,
+        "system": {
+          "seconds": 0,
+          "microseconds": 0
+        },
+        "limit": {
+          "set": true,
+          "infinite": false,
+          "number": 1
+        },
+        "total": {
+          "seconds": 0,
+          "microseconds": 0
+        },
+        "user": {
+          "seconds": 0,
+          "microseconds": 0
+        }
+      },
+      "array": {
+        "job_id": 0,
+        "limits": {
+          "max": {
+            "running": {
+              "tasks": 0
+            }
+          }
+        },
+        "task_id": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "task": ""
+      },
+      "required": {
+        "CPUs": 1,
+        "memory_per_cpu": {
+          "set": false,
+          "infinite": false,
+          "number": 0
+        },
+        "memory_per_node": {
+          "set": true,
+          "infinite": false,
+          "number": 128
+        }
+      },
+      "allocation_nodes": 0,
+      "exit_code": {
+        "status": [
+          "SUCCESS"
+        ],
+        "return_code": {
+          "set": true,
+          "infinite": false,
+          "number": 0
+        },
+        "signal": {
+          "id": {
+            "set": false,
+            "infinite": false,
+            "number": 0
+          },
+          "name": ""
+        }
+      },
+      "partition": "128x24",
+      "restart_cnt": 0,
+      "user": "researcher",
+      "cluster": "hummingbird"
+    }
+  ]
+}
