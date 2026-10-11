@@ -29,6 +29,11 @@ protocol testing.
 
 ## User-observed Terminal checks
 
+These observations used the local development executable (SHA-256
+`9698c05c7432076d63e47ece9b207921c7a8393b6ed832b7012e1ff5d96616c4`),
+not the separately hashed packaged Mac executable. They establish the observed
+native flow, not a native acceptance test of every packaged artifact.
+
 In the supplied Ioskeley profile, the user confirmed:
 
 1. The live Hummingbird jobs/workspace loaded.
