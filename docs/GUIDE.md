@@ -8,7 +8,8 @@ resources and scope before submitting or cancelling work.
 
 **Preview:** the workspace, CLI and MCP have unit, race, live-backend and
 pseudo-terminal checks. See [readiness](READINESS.md) for the exact tested scope
-and remaining limitations. Public downloads are still being prepared.
+and remaining limitations. See [installation](INSTALL.md) for Homebrew and Linux
+user-local installation.
 
 ## Start here
 
@@ -20,8 +21,8 @@ directory, try the workspace with sample jobs:
 ```
 
 This tour is offline and leaves saved preferences alone. Go and Python are not
-needed to run the prebuilt executable. There is no public release yet; local
-preview packages are for review.
+needed to run the prebuilt executable. The public preview is available from
+[GitHub Releases](https://github.com/darthnithin/perch/releases/tag/v0.1.0-preview.3).
 
 Try these controls before connecting:
 
@@ -784,7 +785,7 @@ For log-file lifecycle checks, opt in with `PERCH_LOG_TEST_HOST=your-cruzid@hb.u
 
 Release tooling builds macOS/Linux candidates for arm64 and amd64. Cross-compilation
 is not runtime verification. Software is MIT licensed and Chip artwork is reserved;
-public downloads are still being prepared.
+public preview downloads and Homebrew installation are available.
 
 ## Design and scope
 

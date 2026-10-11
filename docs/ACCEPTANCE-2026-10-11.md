@@ -3,12 +3,12 @@
 This update supplements the [readiness audit](READINESS.md). The user accepted
 the slower curved flight, ordinary connection/reconnect and quit, completion
 banners, mouse navigation, output scrolling and compact resizing. The current
-tested draft is **`v0.1.0-preview.3`**, built from `3841b35`; all four packaged
+tested preview is **`v0.1.0-preview.3`**, built from `3841b35`; all four packaged
 platforms have runtime evidence, with Mac Intel tested through Rosetta.
 
 Actual password/MFA-expiry recovery and GPU-shell behavior remain unverified.
-The user selected MIT for code and reserved Chip artwork. Public distribution
-awaits explicit publication approval; licensed packages are verified. The accepted
+The user selected MIT for code and reserved Chip artwork. Public distribution was subsequently authorized; the repository, preview 3
+and Homebrew tap are now public. Licensed package bytes are unchanged. The accepted
 native checks should not be repeated without a relevant change.
 
 The sections below are a chronological record. Statements about pending motion

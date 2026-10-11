@@ -2,7 +2,7 @@
 
 Current audit: October 11, 2026. **Build and private release preparation accepted.** Perch has a
 working Hummingbird workspace, CLI, read-only MCP server and explicit workload
-actions. The private draft is **`v0.1.0-preview.3`**. The application validation baseline is
+actions. The published preview is **`v0.1.0-preview.3`**. The application validation baseline is
 **`3841b35`** (the tested preview source), with checks scoped below.
 All four packaged platforms have runtime evidence. The user confirmed ordinary
 connect/reconnect, clean exit and completion banners with the local development
@@ -22,9 +22,9 @@ wrap inside the overview pane. Known retries and disjoint stepped memberships
 remain usable. The detailed implementation and targeted validation are recorded
 in [validation history](VALIDATION-HISTORY.md).
 
-## Private repository and presentation
+## Public repository and presentation
 
-Source is published to the [private repository](https://github.com/darthnithin/perch).
+Source is published to the [public repository](https://github.com/darthnithin/perch).
 The README includes a looping workspace GIF and a high-resolution PNG fallback,
 rendered from real PTY output with Ioskeley Mono 12 pt and 0.90 line spacing.
 The GIF retains 64 samples over 1.28 seconds; the user accepted the slower
@@ -38,8 +38,8 @@ while still checking selection and module opening. The corrected check passed at
 recorded in [run 38170883928](https://github.com/darthnithin/perch/actions/runs/38170883928);
 that run completed successfully, including all 48 terminal scripts and six-state
 Chip playback.
-The draft release notes identify the packaged source, exact archive checks and
-runtime coverage. A private draft does not close the native acceptance gates.
+The release notes identify the packaged source, exact archive checks and
+runtime coverage. Public availability does not expand the recorded testing scope.
 
 ## Application validation baseline
 
@@ -69,8 +69,9 @@ licenses, packaging, docs and a synthetic test hostname; application behavior is
 `output/validation/preview3-publication-summary.json` records the final hashes,
 CI results, exact runtimes and private-draft verification.
 
-Source publication to the private repository is authorized; the preview artifacts
-below describe the private draft, not a public release. The earlier
+The user authorized public distribution on October 11. Preview 3 is published
+with its original verified archives. See [installation](INSTALL.md) for the public
+Homebrew tap and Linux user-local commands. The earlier
 `preview-20261010-scheduler` remains unchanged; its 47-script/platform evidence is
 in `output/validation/scheduler-release-summary.json`. The current preview
 supersedes its source behavior but does not retroactively change those results.
@@ -120,7 +121,7 @@ for current status and the history for provenance, failures and superseded work.
 | Move beyond monitoring: workload preparation | Offline resource/script preview, non-submitting validation, explicit one-shot submission, single/multi-node tasks, Open MPI, arrays/concurrency, successful-job dependencies, private submission journal and uncertain-receipt recovery. Production live job evidence is retained in history. | Arbitrary MPI ABI and multi-GPU placement are not certified. No automatic upload, retry or execution of viewed scripts. |
 | Allocation shells and cancellation | CLI and TUI review, fresh owned-attempt/node/scope validation, foreground shell return; separate job/task/whole-array cancellation, one-shot execution and honest receipts. Production live CLI/TUI evidence includes two-node CPU selection, Ctrl-C, return and parent survival on job 803078. See [shells](ALLOCATION-SHELL.md) and [cancellation](CANCELLATION.md). | Native shell interaction; GPU shell acceptance and layouts beyond the tested cases. One unmaterialized pending array task is selected through the CLI, not the grouped TUI row. Cancellation receipts are session-local plus exit text, not a durable journal. |
 | Preferences, cache and troubleshooting | Explicit saved destination/appearance, preview/apply, optional private bounded snapshots, metadata/raw diagnostic modes, corruption/ownership/type handling, atomic replacement. `internal/preferences`, `snapshotcache`, `diagnostics`, `launch/journal`; process tests. | Cache is display-only, not mutation authority. Logs/scripts/credentials are not cached. Raw diagnostic captures need deliberate review before sharing. |
-| Mac/Linux executable and eventual distribution | Four current candidate archives, checksums, doc/artwork comparison, binary target/dependency validation and runtime hash matching. Current Mac ARM, Linux x86 and Linux ARM tested natively; Mac Intel tested under Rosetta. | The licensed preview-3 archives passed all four runtime checks; preserve existing Git history as requested. Source is tracked in the private darthnithin/perch repository. No public release or Homebrew tap is published. |
+| Mac/Linux executable and eventual distribution | Four current candidate archives, checksums, doc/artwork comparison, binary target/dependency validation and runtime hash matching. Current Mac ARM, Linux x86 and Linux ARM tested natively; Mac Intel tested under Rosetta. | The licensed preview-3 archives passed all four runtime checks; preserve existing Git history as requested. Source is tracked in the public darthnithin/perch repository. Preview 3 and the darthnithin/tap Homebrew formula are published. |
 | NRP (deferred; outside current scope) | Explicit namespace/context, typed Job/Pod/container identity, bounded HTTPS reads and log snapshots, explicit credential handling, CLI and namespace UI. Synthetic TLS/plugin/PTY coverage. See [NRP](NRP.md). | No configured context was found in the fresh local check. Quota reads, exact quantities and partial failures now have synthetic CLI/HTTPS/PTY coverage. On-demand Pod CPU/memory metrics also have synthetic parser, CLI, HTTPS and PTY coverage. Existing experimental code, tests and documentation are retained. No further NRP onboarding or implementation is required for the Hummingbird release. |
 
 ## Native review and observed limits
@@ -180,8 +181,8 @@ all current screens or states.
 5. **Delivery.** The reconciled preview is verified as described above; repeat packaging
    and artifact/runtime identity checks after further accepted source changes.
    All four current archive runtimes passed. The user selected MIT code and reserved
-   Chip artwork; both notices are included in verified preview-3 archives. The user chose to retain the existing repository and history. The user authorized a private GitHub repository and release preparation.
-   Public publication and contacting administrators remain separate actions.
+   Chip artwork; both notices are included in verified preview-3 archives. The user chose to retain the existing repository and history. The user subsequently authorized public distribution. The repository, preview 3
+   and Homebrew tap are public. Contacting administrators remains a separate action.
 6. **Completion decision.** The requirement table above covers the original
    workspace/design, Chip, keyboard/mouse navigation, CLI/MCP, cluster discovery,
    workload actions, private Git publication, README and release-preparation
@@ -190,9 +191,9 @@ all current screens or states.
    After the remaining authentication uncertainty was explained, the user said
    “dude i think everything is fine.” Accept the delivered experience and close
    the build/preparation work; do not reopen the same native checklist. This does
-   not turn untested password/MFA or GPU behavior into a passed check. Public
-   publication and the Homebrew installation lifecycle remain separate future
-   distribution actions, not completed actions.
+   not turn untested password/MFA or GPU behavior into a passed check. The subsequent public
+   distribution request is recorded below; the build acceptance does not
+   retroactively certify untested environments.
 
 ## Candidate and policy boundaries
 
@@ -213,3 +214,12 @@ These remain tracked rather than silently advertised as implemented:
 See [architecture](../ARCHITECTURE.md), [feature design](feature-design.md),
 [Hummingbird observations](hummingbird-capabilities.md), [MCP](MCP.md),
 [NRP](NRP.md), and [validation history](VALIDATION-HISTORY.md) for the full scope.
+
+## Public distribution · October 11
+
+The user requested public visibility, Homebrew instructions and Linux installation.
+The existing repository and history were retained. Preview 3 was published with
+the exact previously verified archives. The separate public Homebrew tap is
+[darthnithin/homebrew-tap](https://github.com/darthnithin/homebrew-tap).
+Installation instructions are in [INSTALL.md](INSTALL.md). The earlier private
+draft observations above remain provenance for the same release bytes.

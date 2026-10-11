@@ -1,0 +1,56 @@
+name: Public installation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    name: Linux ${{ matrix.arch }} installation
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            arch: x86_64
+            binary_sha256: e9fa1c015cb0aa4e9b956f425f56113107e9f635d0692f4ee024b529811b6cba
+          - runner: ubuntu-24.04-arm
+            arch: aarch64
+            binary_sha256: 0b41db1c9a52d312fc9fd1d82d7362387c241014219982ebd0bbe10cb8ed45ee
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install using the published Linux instructions
+        env:
+          PERCH_INSTALL_PREFIX: ${{ runner.temp }}/perch-public-install
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          guide = Path('docs/INSTALL.md').read_text().split('## Linux without Homebrew', 1)[1]
+          script = guide.split('```sh\n', 1)[1].split('```', 1)[0]
+          Path(os.environ['RUNNER_TEMP'], 'perch-install.sh').write_text(script)
+          PY
+          sh "$RUNNER_TEMP/perch-install.sh"
+      - name: Verify installed executable and bundled notices
+        env:
+          EXPECTED_ARCH: ${{ matrix.arch }}
+          EXPECTED_SHA256: ${{ matrix.binary_sha256 }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, platform, subprocess
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / 'perch-public-install'
+          binary = root / 'bin/perch'
+          assert platform.machine() == os.environ['EXPECTED_ARCH']
+          digest = hashlib.sha256(binary.read_bytes()).hexdigest()
+          assert digest == os.environ['EXPECTED_SHA256']
+          assert subprocess.check_output([str(binary), 'version'], text=True).strip() == 'perch v0.1.0-preview.3'
+          result = json.loads(subprocess.check_output([str(binary), 'jobs', '--demo', '--no-config', '--json']))
+          assert result['source'] == 'demo' and result['data']
+          for name in ['LICENSE', 'assets/bird/LICENSE', 'THIRD_PARTY_NOTICES.md']:
+              assert (root / 'share/perch' / name).read_bytes() == Path(name).read_bytes()
+          print(json.dumps({'architecture': platform.machine(), 'binary_sha256': digest, 'install': 'passed', 'demo': 'passed', 'notices': 'passed'}))
+          PY

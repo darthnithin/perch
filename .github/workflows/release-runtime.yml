@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       release_version:
-        description: Existing private draft/release tag
+        description: Existing draft/release tag
         required: true
         type: string
       archive_sha256:
@@ -42,11 +42,10 @@ jobs:
           for name in ('ARCHIVE_SHA256', 'BINARY_SHA256'):
               assert re.fullmatch(r'[0-9a-f]{64}', os.environ[name]), name
           PY
-      - name: Download existing private release archive
+      - name: Download existing release archive
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          test "$(gh repo view "$GITHUB_REPOSITORY" --json isPrivate --jq .isPrivate)" = true
           gh release download "$RELEASE_VERSION" --repo "$GITHUB_REPOSITORY" \
             --pattern "perch-${RELEASE_VERSION}-linux-arm64.tar.gz" --dir artifact
       - name: Verify archive and extract only the executable

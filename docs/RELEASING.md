@@ -2,7 +2,8 @@
 
 Perch is a Hummingbird terminal workspace in preview. The current product scope
 excludes NRP: its existing source, fixtures and tests are preserved as deferred
-experiments. Nothing in this checklist authorizes publishing the repository.
+experiments. The user authorized public repository, release and Homebrew
+distribution on October 11, 2026. The published preview is v0.1.0-preview.3.
 
 ## Validate a candidate
 
@@ -28,7 +29,7 @@ experiments. Nothing in this checklist authorizes publishing the repository.
 ## Native Linux ARM verification
 
 The manual **Packaged Linux ARM runtime** workflow uses GitHub's
-`ubuntu-24.04-arm` runner. It downloads an existing private release archive;
+`ubuntu-24.04-arm` runner. It downloads an existing release archive;
 it does not rebuild the application or start a local VM. Dispatch
 `.github/workflows/release-runtime.yml` with the release tag, archive SHA-256 and
 packaged executable SHA-256 from your independent local archive checks. GitHub
@@ -45,10 +46,10 @@ checks, not native desktop fonts or authentication to Hummingbird.
 
 ## Preview preparation
 
-Push reviewed source to the private repository. Verify the remote is private and
-its commit matches the local checkout. A private GitHub draft release can be
-prepared with checked archives and checksums; distinguish a draft from a published
-release. Record incomplete native or platform checks in its notes.
+Push reviewed source and verify the remote commit. Prepare future versions as
+drafts with checked archives and checksums, then publish the reviewed version.
+Record incomplete native or platform checks in its notes. Preserve the immutable
+preview-3 archives and their tested source identity.
 
 ## Before public release
 
@@ -56,34 +57,18 @@ The code and documentation use the root MIT license; Chip artwork uses the
 reserved terms in `assets/bird/LICENSE`. Include both with every archive and
 Homebrew installation, along with third-party notices. Finish the applicable
 acceptance checks, select a version, and review the exact release contents.
-Public visibility, public releases and a Homebrew tap require a separate user
-instruction. Rebuild the candidate to include the selected licensing notices
+Public distribution is authorized for this preview. Rebuild the candidate to include the selected licensing notices
 and anonymized current examples when those inputs change; preview 3 already
 includes both. The user chose to keep the existing repository
 and Git history; do not rename it or rewrite historical username references.
 
-### Try the private draft without building
+## Public installation
 
-Repository collaborators with push access can download the existing draft through
-an authenticated GitHub CLI. For Apple Silicon, run this from an empty directory:
-
-```sh
-gh release download v0.1.0-preview.3 --repo darthnithin/perch \
-  --pattern 'perch-v0.1.0-preview.3-darwin-arm64.tar.gz' \
-  --pattern 'SHA256SUMS-v0.1.0-preview.3.txt'
-awk '$2 == "perch-v0.1.0-preview.3-darwin-arm64.tar.gz" {print}' \
-  SHA256SUMS-v0.1.0-preview.3.txt | shasum -a 256 -c -
-# Continue only after the checksum check reports OK.
-tar -xzf perch-v0.1.0-preview.3-darwin-arm64.tar.gz
-./perch --demo --no-config
-```
-
-Use the matching archive suffix from the README for other platforms. This path
-was checked using the uploaded Mac ARM archive, extracted outside the source
-checkout; its bytes matched the independently verified candidate. It requires no
-Go or Python. It does not exercise browser-download quarantine or Gatekeeper.
-The release remains a draft, so these are collaborator instructions rather than
-public installation instructions.
+See [installation](INSTALL.md) for Homebrew, Linux user-local commands and macOS
+archives. The public preview uses the exact verified preview-3 archives; their
+bundled documentation records the earlier private preparation checkpoint. Current
+installation instructions live in the repository. Do not replace released archives
+just to refresh those historical notes.
 
 ## Prepare a Homebrew tap formula
 
@@ -104,9 +89,9 @@ on a Mac (Intel via Rosetta on Apple Silicon). It does not exercise the complete
 `brew install`, linking, upgrade, uninstall, or `brew test` lifecycle, and it
 does not install a tap or modify terminal preferences.
 
-After distribution is authorized, publish accessible release assets and place
-the generated file at `Formula/perch.rb` in `darthnithin/homebrew-tap`. The
-intended command is `brew install darthnithin/tap/perch`; that tap is not yet
-published. Draft release URLs are not working public downloads. Validate the
-full installation and upgrade lifecycle against the published assets before
-advertising the command. See the [Homebrew tap guide](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap).
+The public tap is [darthnithin/homebrew-tap](https://github.com/darthnithin/homebrew-tap),
+with the generated file at `Formula/perch.rb`. Users install through
+`brew install darthnithin/tap/perch`. For future updates, publish the verified
+release assets before updating formula URLs and checksums. Validate installation
+and smoke tests against the public assets, then record the exact version and
+runtime scope. See the [Homebrew tap guide](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap).

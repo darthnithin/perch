@@ -35,35 +35,44 @@ alongside your work. Turn on reduced motion whenever you prefer.
 **No compiler required.** Perch ships as one executable for macOS and Linux.
 OpenSSH is needed only when connecting to Hummingbird.
 
-Download the matching archive from [GitHub Releases](https://github.com/darthnithin/perch/releases).
-The next preview is being prepared for distribution. Downloads and a Homebrew
-tap are not published yet; release preparation does not make those links live.
-
-| Computer | Archive suffix |
-| --- | --- |
-| Mac with Apple Silicon | `darwin-arm64.tar.gz` |
-| Mac with Intel | `darwin-amd64.tar.gz` |
-| Linux ARM64 | `linux-arm64.tar.gz` |
-| Linux x86-64 | `linux-amd64.tar.gz` |
-
-Extract the archive into its own folder, open a terminal there, and run:
+### Homebrew · macOS and Linux
 
 ```sh
-./perch --demo --no-config
+brew install darthnithin/tap/perch
+perch --demo --no-config
 ```
+
+### Linux · without Homebrew
+
+Download **[Linux x86-64](https://github.com/darthnithin/perch/releases/download/v0.1.0-preview.3/perch-v0.1.0-preview.3-linux-amd64.tar.gz)**
+or **[Linux ARM64](https://github.com/darthnithin/perch/releases/download/v0.1.0-preview.3/perch-v0.1.0-preview.3-linux-arm64.tar.gz)**.
+[The installation guide](docs/INSTALL.md#linux-without-homebrew) includes
+copy-and-paste commands with architecture detection, checksum verification and a
+user-local install—no sudo or compiler required.
+
+### Direct download · macOS
+
+Prefer an archive? Choose **[Apple Silicon](https://github.com/darthnithin/perch/releases/download/v0.1.0-preview.3/perch-v0.1.0-preview.3-darwin-arm64.tar.gz)**
+or **[Intel](https://github.com/darthnithin/perch/releases/download/v0.1.0-preview.3/perch-v0.1.0-preview.3-darwin-amd64.tar.gz)**,
+extract it, and run `./perch --demo --no-config` from that folder.
+
+The current release is **v0.1.0-preview.3**.
+[All downloads and checksums](https://github.com/darthnithin/perch/releases/tag/v0.1.0-preview.3) ·
+[Install, update and uninstall](docs/INSTALL.md)
 
 The demo is offline. Explore with arrows or clicks, press **Enter** to inspect,
 **a** for job actions, **Ctrl+k** to find a command, and **?** for help.
 Use **Esc** to leave a panel or input, then **q** to quit.
 
-When you’re ready, connect with your CruzID or an SSH config alias:
+With Homebrew or a user-local installation, connect with your CruzID or an SSH
+config alias (use `./perch` when running directly from an extracted archive):
 
 ```sh
-./perch --host your-cruzid@hb.ucsc.edu
+perch --host your-cruzid@hb.ucsc.edu
 ```
 
 Press **c** when sign-in is needed; your system SSH client handles authentication.
-Run `./perch setup` to save a destination for future sessions.
+Run `perch setup` to save a destination for future sessions.
 Hummingbird account access and any required network access must already work.
 
 The prebuilt executable needs neither Go nor Python. See
@@ -86,12 +95,12 @@ Use `/settings` for theme, motion and mouse preferences.
 
 ```sh
 # Read-only CLI queries; JSON for scripts.
-./perch jobs --host your-cruzid@hb.ucsc.edu --json
-./perch history --host your-cruzid@hb.ucsc.edu --json
-./perch doctor --host your-cruzid@hb.ucsc.edu
+perch jobs --host your-cruzid@hb.ucsc.edu --json
+perch history --host your-cruzid@hb.ucsc.edu --json
+perch doctor --host your-cruzid@hb.ucsc.edu
 
 # Agent tools and Hummingbird guidance over stdio.
-./perch mcp --host your-cruzid@hb.ucsc.edu
+perch mcp --host your-cruzid@hb.ucsc.edu
 ```
 
 The [user guide](docs/GUIDE.md) covers workload preparation, logs, scripts,
@@ -103,7 +112,7 @@ notifications, arrays and preferences. See [allocation shells](docs/ALLOCATION-S
 Building from source is for development and requires **Go 1.27.2+**:
 
 ```sh
-git clone git@github.com:darthnithin/perch.git
+git clone https://github.com/darthnithin/perch.git
 cd perch
 make build
 ./bin/perch --demo --no-config
