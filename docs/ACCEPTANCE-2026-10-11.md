@@ -292,3 +292,15 @@ Local reports: `output/validation/preview3-source.json`, `preview3-archives.json
 `preview3-homebrew-install.json`, and `preview3-publication-summary.json`.
 The hosted release is a draft and the repository remains private. No Homebrew
 tap or public release was published.
+
+## Uploaded Mac archive handoff
+
+The authenticated GitHub draft download of `v0.1.0-preview.3` for Mac ARM was
+checked after upload. Its checksum manifest and archive bytes matched the
+independently verified local candidate. Extracted into a temporary directory
+outside the source checkout, the executable reported the expected version and
+returned six offline demo job records. The MIT notice, reserved artwork notice
+and reference terminal profile matched the source files. No compiler or Python
+runtime was required by the executable. This verifies the CLI download and
+extraction path, not browser quarantine or Gatekeeper. Evidence:
+`output/validation/preview3-github-download/smoke.json`.

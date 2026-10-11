@@ -58,8 +58,32 @@ Homebrew installation, along with third-party notices. Finish the applicable
 acceptance checks, select a version, and review the exact release contents.
 Public visibility, public releases and a Homebrew tap require a separate user
 instruction. Rebuild the candidate to include the selected licensing notices
-and anonymized current examples. The user chose to keep the existing repository
+and anonymized current examples when those inputs change; preview 3 already
+includes both. The user chose to keep the existing repository
 and Git history; do not rename it or rewrite historical username references.
+
+### Try the private draft without building
+
+Repository collaborators with push access can download the existing draft through
+an authenticated GitHub CLI. For Apple Silicon, run this from an empty directory:
+
+```sh
+gh release download v0.1.0-preview.3 --repo darthnithin/perch \
+  --pattern 'perch-v0.1.0-preview.3-darwin-arm64.tar.gz' \
+  --pattern 'SHA256SUMS-v0.1.0-preview.3.txt'
+awk '$2 == "perch-v0.1.0-preview.3-darwin-arm64.tar.gz" {print}' \
+  SHA256SUMS-v0.1.0-preview.3.txt | shasum -a 256 -c -
+# Continue only after the checksum check reports OK.
+tar -xzf perch-v0.1.0-preview.3-darwin-arm64.tar.gz
+./perch --demo --no-config
+```
+
+Use the matching archive suffix from the README for other platforms. This path
+was checked using the uploaded Mac ARM archive, extracted outside the source
+checkout; its bytes matched the independently verified candidate. It requires no
+Go or Python. It does not exercise browser-download quarantine or Gatekeeper.
+The release remains a draft, so these are collaborator instructions rather than
+public installation instructions.
 
 ## Prepare a Homebrew tap formula
 
@@ -67,10 +91,10 @@ An independently maintained tap can install the prebuilt archives without Go.
 Generate its formula from a checked release directory:
 
 ```sh
-python3 tools/homebrew_formula.py v0.1.0-preview.2 --archives dist
+python3 tools/homebrew_formula.py v0.1.0-preview.3 --archives dist
 make homebrew-test
 HOMEBREW_NO_AUTO_UPDATE=1 brew ruby tools/test_homebrew_formula.rb \
-  output/homebrew/perch.rb dist v0.1.0-preview.2
+  output/homebrew/perch.rb dist v0.1.0-preview.3
 ```
 
 The generator verifies all four archive checksums before writing the formula.
