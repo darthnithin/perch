@@ -304,3 +304,19 @@ and reference terminal profile matched the source files. No compiler or Python
 runtime was required by the executable. This verifies the CLI download and
 extraction path, not browser quarantine or Gatekeeper. Evidence:
 `output/validation/preview3-github-download/smoke.json`.
+
+## Packaged first-run setup
+
+`tools/test_setup.py` passed against the extracted preview-3 Mac ARM executable
+(SHA-256 `3abbdfbb8616915de4da11c0b6afe14b000dff2d5182c30b535783eede10bc94`).
+It exercised destination choice before any SSH call, opt-in persistence with
+private file permissions, preservation of appearance preferences, saved and
+explicit host selection, cancellation, minimum-size layout and resize,
+session-only setup, disabled mouse capture, save-failure recovery and normal
+terminal restoration. SSH was synthetic; this does not establish password/MFA
+behavior. The compact setup emulator render was reviewed. Evidence:
+`output/validation/preview3-setup.log` and `output/terminal/setup-compact-48.png`.
+
+The current MCP guide and example now lead with the prebuilt executable and
+explain its absolute path. The original preview-3 archive remains immutable;
+those documentation refinements are in the source checkout for the next package.

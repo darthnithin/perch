@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "perch": {
-      "command": "/absolute/path/to/perch/bin/perch",
+      "command": "/absolute/path/to/extracted/perch",
       "args": ["mcp", "--host", "your-cruzid@hb.ucsc.edu"]
     }
   }

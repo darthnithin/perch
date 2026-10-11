@@ -792,7 +792,7 @@ Ioskeley Mono is the approved reference font and recommended terminal setup. The
 
 The user-selected default is warm charcoal with cream and peach accents (`--theme warm`). Cool graphite remains available with `--theme graphite`. Both use the same layout; `--no-color` overrides either theme.
 
-The visual references are Superfile, Claude Code, and the original Hummingbird mockup. The title bar and persistent command input anchor the workspace. Top tabs keep navigation above the jobs and detail panels. Chip sits on the My jobs border in roomy terminals, using the selected original-derived octant treatment. His six animations reflect workload state; `--reduced-motion` uses still poses. The detailed image artwork is preserved for web and other uses. The small terminal artwork needs Unicode 16 block mosaics, available in Ioskeley Mono; native line-spacing seams remain under refinement.
+The visual references are Superfile, Claude Code, and the original Hummingbird mockup. The title bar and persistent command input anchor the workspace. Top tabs keep navigation above the jobs and detail panels. Chip sits on the My jobs border in roomy terminals, using the selected original-derived octant treatment. His six animations reflect workload state; `--reduced-motion` uses still poses. The detailed image artwork is preserved for web and other uses. The small terminal artwork needs Unicode 16 block mosaics, available in Ioskeley Mono. The reference profile and slower curved flight were accepted in native Terminal.app; other fonts and spacing can still introduce seams.
 
 - [Architecture](../ARCHITECTURE.md)
 - [Feature design](../docs/feature-design.md)
@@ -800,7 +800,13 @@ The visual references are Superfile, Claude Code, and the original Hummingbird m
 - [Readiness and remaining work](../docs/READINESS.md)
 - [Approved Chip artwork](../assets/bird/README.md)
 
-Perch is independent of any course or workload. Native notification acceptance, final persistence/diagnostics review, disconnect/reconnect acceptance, and final visual acceptance remain part of the active build goal. Quota views remain open; explicit allocation shells are available in the CLI and workspace, with acceptance scope documented above.
+Perch is independent of any course or workload. The user confirmed ordinary
+connection/reconnect, clean exit, completion banners and keyboard/mouse navigation
+in the reference Terminal profile. Actual password/MFA expiry, failure banners
+and GPU-allocation shell behavior remain unverified; see the dated
+[acceptance record](ACCEPTANCE-2026-10-11.md). Personal quota remains unavailable
+through the tested account permissions. Allocation shells are available in the
+CLI and workspace, with their tested resource scope documented above.
 
 ### Activity this session
 

@@ -2,11 +2,16 @@
 
 Perch includes a local stdio MCP server built with the [official Go SDK](https://github.com/modelcontextprotocol/go-sdk). It connects to Hummingbird using the same system SSH transport and normalized queries as the CLI. Nothing is installed on the cluster.
 
+The prebuilt executable includes the MCP server; no compiler, Python runtime or
+separate server installation is needed. From the extracted archive directory:
+
 ```sh
-make build
-./bin/perch mcp --demo
-./bin/perch mcp --host your-cruzid@hb.ucsc.edu
+./perch mcp --demo --no-config
+./perch mcp --host your-cruzid@hb.ucsc.edu
 ```
+
+For development from a source checkout, run `make build` and substitute
+`./bin/perch` for `./perch`.
 
 The command waits for an MCP client on stdin; a quiet terminal is expected. Do not use it as an interactive shell. Stdout carries protocol messages only. On EOF the server exits and closes its private SSH master. `--timeout 45s` sets each live tool's deadline, including time spent waiting behind another query. `--local` is available where local cluster commands are permitted.
 
@@ -18,14 +23,19 @@ Use an absolute path to the executable. Clients that use an `mcpServers` JSON co
 {
   "mcpServers": {
     "perch": {
-      "command": "/absolute/path/to/perch/bin/perch",
+      "command": "/absolute/path/to/extracted/perch",
       "args": ["mcp", "--host", "your-cruzid@hb.ucsc.edu"]
     }
   }
 }
 ```
 
-For an offline walkthrough, use `"args": ["mcp", "--demo"]`. Setup syntax differs between clients; this file is a configuration example, not an automatic installation. Perch does not modify client settings.
+Replace `command` with the full path to your executable, including the final
+`perch` filename. A source build is at `<checkout>/bin/perch`; an extracted
+archive puts `perch` directly in its extraction directory. Keep the executable
+in a stable location so moving Downloads does not break your client configuration.
+
+For an offline walkthrough, use `"args": ["mcp", "--demo", "--no-config"]`. Setup syntax differs between clients; this file is a configuration example, not an automatic installation. Perch does not modify client settings.
 
 Live tools require working noninteractive SSH credentials. Guides and discovery work even when the cluster is unavailable. Authentication problems appear as tool errors; Perch does not request or accept passwords through MCP. The TUI's interactive SSH sign-in is local to that TUI process, so it does not establish credentials for a separately running MCP process. Configure your system SSH agent/key access for repeated CLI or MCP use.
 
