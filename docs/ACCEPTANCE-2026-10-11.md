@@ -65,16 +65,28 @@ They requested a slower preview and suggested a spring or figure-eight stroke.
 The shipped source still cycles through eight wing-tip positions at 40 ms per
 frame and shifts the body by one pixel during part of the loop.
 
-`tools/chip_wing_study.py` now provides one isolated figure-eight study. It keeps
+The first isolated figure-eight study kept
 the original body, head, bill, tail and hover cadence, with a 640 ms wingbeat
 (half the shipped speed). The projected wing chord narrows through the turn.
 This is a stylized periodic path, not a physical spring or flight simulation.
 All 16 stroke positions were reviewed in an Ioskeley contact sheet; the wing
-becomes nearly hidden by the head at the close end, which needs user judgment.
+became nearly hidden by the head at the close end.
 The full 2.56-second GIF was decoded and compared against every rendered frame.
 PTY checks passed for quitting, SIGTERM and the narrow-window guard, including
 terminal restoration. Source artwork hashes remained unchanged. These checks
-do not establish aesthetic approval or native Terminal rendering acceptance.
+do not establish native Terminal rendering acceptance. The user then selected
+**“Closer—refine this motion.”**
+
+The current `tools/chip_wing_study.py` keeps the close turn left of the face so
+the blade stays visible. It samples 32 poses per 640 ms wingbeat (20 ms frames)
+without changing the beat speed or the original 1.28-second hover cadence.
+The new 1.28-second GIF was decoded and compared against every render; the
+contact sheet shows every other pose through a complete stroke. Original face
+pixels remain identical across every frame after accounting for the hover.
+The loop boundary changes fewer pixels than the largest ordinary adjacent
+transition; that is a continuity check, not proof of natural-looking motion.
+The 20 ms terminal preview passed quit, SIGTERM and narrow-window cleanup checks.
+Original art is retained. This refinement is still a review study.
 
 To inspect in the supplied Ioskeley Terminal profile:
 
@@ -90,6 +102,22 @@ Local evidence is retained under `output/validation/` (not shipped):
 `oct11-private-publication-summary.json`, `oct11-private-linux-arm-runtime/runtime.json`,
 `native-acceptance-oct11.json`, and the native notification probe receipts/logs.
 Earlier comparisons remain under `output/design/wing-motion-study/` and
-`output/design/wing-arc-study/`. The latest study is under
-`output/design/wing-eight-study/`, including `preview.gif`, `poses.png` and
-`terminal-checks.json`.
+`output/design/wing-arc-study/`. The first figure-eight clip remains unchanged at
+`output/design/wing-eight-study/`. Its refinement is under
+`output/design/wing-eight-study-v2/`, including `preview.gif`, `poses.png`,
+`motion-checks.json` and `terminal-checks.json`.
+
+## Compact resource view refinement
+
+Source commit `2decc8b` lets the Resources panel reclaim four rows from the idle
+command box in terminals at most 24 rows tall, matching the existing logs and
+inspector behavior. At 80×24 the first-sample explanation and the sampled RSS
+plot are now visible without scrolling. `/` restores command entry; Escape
+restores the resource space and selection. Taller layouts retain the command box.
+
+UI/bird Go tests, UI vet and the build passed. Resource-step, live-step and footer
+PTY checks passed, including mouse step selection, compact resizing and cleanup.
+The Ioskeley before/after renders are in `output/design/interface-review-oct11/`.
+[CI run 38175760369](https://github.com/darthnithin/perch/actions/runs/38175760369)
+tests this source change; its final conclusion is not yet recorded here.
+The private draft still packages `c89be60` and does not include this newer layout.

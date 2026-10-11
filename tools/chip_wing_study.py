@@ -25,8 +25,8 @@ import tty
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "output/design/wing-eight-study"
-COUNT, FRAME_MS = 64, 40
+OUT = ROOT / "output/design/wing-eight-study-v2"
+COUNT, FRAME_MS = 64, 20
 BG = "1c1b1a"
 
 
@@ -61,7 +61,9 @@ def tip_at(phase):
     # A flattened figure eight in this stylized side projection. Sines give a
     # continuous stroke and a gradual sweep reversal, not linear pose stepping.
     angle = 2 * math.pi * phase
-    return 10 - 7 * math.cos(angle), 10 + 3 * math.sin(2 * angle)
+    # Keep the close turn left of the face so its edge-on silhouette remains
+    # readable instead of disappearing into the head for several poses.
+    return 8.5 - 5.5 * math.cos(angle), 10 + 3 * math.sin(2 * angle)
 
 
 def wing(layer, root, tip, width, fill, edge, shadow):
@@ -87,7 +89,7 @@ def sprites(art):
     art["head"](ImageDraw.Draw(face), x=21, y=9)
     frames = []
     for f in range(COUNT):
-        phase = (f % 16) / 16  # 640 ms per beat: half the shipped beat speed.
+        phase = (f % 32) / 32  # 640 ms per beat: half the shipped beat speed.
         tip = tip_at(phase)
         width = 1 + 2 * abs(math.sin(2 * math.pi * phase))
         im = art["blank"]()
@@ -99,7 +101,8 @@ def sprites(art):
         im.alpha_composite(face)
         shifted = art["blank"]()
         # Preserve the original one-pixel hover and its wall-clock cadence.
-        shifted.alpha_composite(im, (0, -1 if 12 <= f % 32 < 24 else 0))
+        hover_phase = (f * FRAME_MS / 40) % 32
+        shifted.alpha_composite(im, (0, -1 if 12 <= hover_phase < 24 else 0))
         assert shifted.getbbox()[0] >= 2 and shifted.getbbox()[3] <= 28
         frames.append(shifted)
     return frames
@@ -229,14 +232,14 @@ def render(data):
     indexed[0].save(OUT / "preview.gif", save_all=True, append_images=indexed[1:],
                     duration=FRAME_MS, loop=0, disposal=1, optimize=True)
     images[0].save(OUT / "preview.png")
-    # Actual Ioskeley glyphs, the sixteen positions of a beat, left to right.
+    # Actual Ioskeley glyphs, every other pose of the 32-position beat.
     sheet = Image.new("RGB", (4 * 360, 4 * 260), images[0].getpixel((0, 0)))
     d = ImageDraw.Draw(sheet)
     for i in range(16):
         x, y = (i % 4) * 360, (i // 4) * 260
-        crop = images[i].crop((110, 100, 420, 340))
+        crop = images[i * 2].crop((110, 100, 420, 340))
         sheet.paste(crop, (x, y + 20))
-        d.text((x + 20, y + 5), f"{i:02d} / {i * FRAME_MS} ms", fill="#e6ad8f")
+        d.text((x + 20, y + 5), f"{i * 2:02d} / {i * 2 * FRAME_MS} ms", fill="#e6ad8f")
     sheet.save(OUT / "poses.png")
     # Verify the encoded loop against every frame, including GIF coalescing.
     with Image.open(OUT / "preview.gif") as gif:
