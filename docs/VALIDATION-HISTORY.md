@@ -3476,3 +3476,22 @@ new location and NRP marked deferred. A short README and current offline demo
 render replace the long front page. The render comes from a real PTY with
 `--demo --no-config --reduced-motion` at 140 by 44 cells; it is an emulator image,
 not a native screenshot. Original detailed Chip assets are unchanged.
+
+
+## October 11, 2026 — README animation and CI clock regression
+
+Commit `1448de4` published the Ioskeley 12 pt / 0.90 spacing workspace GIF and
+crisp PNG fallback with a reproducible PTY/CoreText renderer. The published GIF
+was verified byte-for-byte. All decoded frames matched their captured,
+palette-mapped source; 64 samples retain a 2.56-second loop. This is offline font
+rendering of real terminal output, not a native Terminal.app screenshot.
+
+Commit `6d67a5c` fixes a timing-sensitive software-panel test: a report-age update
+outside the panel had invalidated whole-screen equality during hover. The check
+now deliberately crosses that timer tick and compares panel contents, retaining
+selection and accidental-opening coverage. Local 48/80/140-column checks passed.
+GitHub run 38170883928 records the independent source and terminal results.
+
+The October 11 GPU inventory still reported all four P100s allocated on node-24;
+no duplicate GPU probe was submitted. Native MFA, notification delivery and GPU
+shell acceptance remain open. NRP stays preserved and outside active scope.

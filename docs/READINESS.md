@@ -1,9 +1,9 @@
 # Perch readiness
 
-Current audit: October 10, 2026. **The build goal remains active.** Perch has a
+Current audit: October 11, 2026. **The build goal remains active.** Perch has a
 working Hummingbird workspace, CLI, read-only MCP server and explicit workload
-actions. The current local preview is **`preview-20261010-reconciled`**. Its automated
-checks passed within the scopes below. Native experience, authentication/alerts,
+actions. The private draft is **`v0.1.0-preview.1`**. The application validation baseline is
+**`preview-20261010-reconciled`**, with checks scoped below. Native experience, authentication/alerts,
 and GPU-shell acceptance remain open. The user approved the supplied Ioskeley
 terminal profile on October 10; NRP was explicitly removed from active scope,
 with its existing implementation and documentation preserved.
@@ -16,7 +16,24 @@ wrap inside the overview pane. Known retries and disjoint stepped memberships
 remain usable. The detailed implementation and targeted validation are recorded
 in [validation history](VALIDATION-HISTORY.md).
 
-## Current preview checks
+## Private repository and presentation
+
+Source is published to the [private repository](https://github.com/darthnithin/perch).
+The README includes a looping workspace GIF and a high-resolution PNG fallback,
+rendered from real PTY output with Ioskeley Mono 12 pt and 0.90 line spacing.
+The GIF retains 64 samples over 2.56 seconds. Original detailed Chip assets remain
+unchanged. See [media provenance](media/README.md) for reproduction and limits.
+
+The software hover regression now compares panel contents and deliberately crosses
+a report-age clock tick. This avoids mistaking a changing age label for navigation
+while still checking selection and module opening. The corrected check passed at
+48, 80 and 140 columns locally. GitHub verification of source commit `6d67a5c` is
+recorded in [run 38170883928](https://github.com/darthnithin/perch/actions/runs/38170883928);
+use its terminal conclusion, not merely the existence of the run, as CI evidence.
+The draft release notes identify the packaged source, exact archive checks and
+runtime coverage. A private draft does not close the native acceptance gates.
+
+## Application validation baseline
 
 `output/validation/reconciled-release-summary.json` binds archive checks, platform
 runtime results and test logs to exact executable hashes.
@@ -41,14 +58,11 @@ supersedes its source behavior but does not retroactively change those results.
 
 ## Latest access checks
 
-- `output/validation/reconciled-gpu-capacity.json`: node-24 still reported all four
+- `output/validation/oct11-gpu-capacity.json`: the October 11 read of node-24 reported all four
   P100 GPUs allocated. No repeat GPU probe was submitted. This is a timestamped
   allocation observation, not a prediction of future availability.
-- `output/validation/scheduler-nrp-access-check.json`: kubectl returned no context
-  names, and the OIDC login plugin was not discoverable. The user has been asked
-  whether they already have NRP access and a namespace; credentials were not requested.
-- `output/validation/acceptance-access-checkpoint.json` records these boundaries
-  and the first-run documentation pass. No account or credential settings changed.
+- NRP access is deferred by the user. Existing access-check evidence is historical;
+  no context setup or live NRP acceptance is required for this Hummingbird release.
 
 ## Evidence rules
 
