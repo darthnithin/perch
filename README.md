@@ -32,14 +32,24 @@ alongside your work. Turn on reduced motion whenever you prefer.
 
 ## Get started
 
-Requires **Go 1.27.2+** to build, and OpenSSH to connect. Clone this private repository
-with an authorized GitHub account, then:
+**No compiler required.** Perch ships as one executable for macOS and Linux.
+OpenSSH is needed only when connecting to Hummingbird.
+
+Download the matching archive from [GitHub Releases](https://github.com/darthnithin/perch/releases).
+The current `v0.1.0-preview.2` is a private draft, visible to repository maintainers;
+a public download and Homebrew tap are not published yet.
+
+| Computer | Archive suffix |
+| --- | --- |
+| Mac with Apple Silicon | `darwin-arm64.tar.gz` |
+| Mac with Intel | `darwin-amd64.tar.gz` |
+| Linux ARM64 | `linux-arm64.tar.gz` |
+| Linux x86-64 | `linux-amd64.tar.gz` |
+
+Extract the archive into its own folder, open a terminal there, and run:
 
 ```sh
-git clone git@github.com:darthnithin/perch.git
-cd perch
-make build
-./bin/perch --demo --no-config
+./perch --demo --no-config
 ```
 
 The demo is offline. Explore with arrows or clicks, press **Enter** to inspect,
@@ -49,16 +59,15 @@ Use **Esc** to leave a panel or input, then **q** to quit.
 When you’re ready, connect with your CruzID or an SSH config alias:
 
 ```sh
-./bin/perch --host your-cruzid@hb.ucsc.edu
+./perch --host your-cruzid@hb.ucsc.edu
 ```
 
 Press **c** when sign-in is needed; your system SSH client handles authentication.
-Run `./bin/perch setup` to save a destination for future sessions.
+Run `./perch setup` to save a destination for future sessions.
 Hummingbird account access and any required network access must already work.
 
-**Have a preview archive?** Extract it and use `./perch` instead of `./bin/perch`.
-The prebuilt executable needs neither Go nor Python. This is a private development
-preview; see [readiness](docs/READINESS.md) for the exact tested scope.
+The prebuilt executable needs neither Go nor Python. See
+[readiness](docs/READINESS.md) for the exact tested scope.
 
 ## Make it feel at home
 
@@ -77,12 +86,12 @@ Use `/settings` for theme, motion and mouse preferences.
 
 ```sh
 # Read-only CLI queries; JSON for scripts.
-./bin/perch jobs --host your-cruzid@hb.ucsc.edu --json
-./bin/perch history --host your-cruzid@hb.ucsc.edu --json
-./bin/perch doctor --host your-cruzid@hb.ucsc.edu
+./perch jobs --host your-cruzid@hb.ucsc.edu --json
+./perch history --host your-cruzid@hb.ucsc.edu --json
+./perch doctor --host your-cruzid@hb.ucsc.edu
 
 # Agent tools and Hummingbird guidance over stdio.
-./bin/perch mcp --host your-cruzid@hb.ucsc.edu
+./perch mcp --host your-cruzid@hb.ucsc.edu
 ```
 
 The [user guide](docs/GUIDE.md) covers workload preparation, logs, scripts,
@@ -91,7 +100,14 @@ notifications, arrays and preferences. See [allocation shells](docs/ALLOCATION-S
 
 ## Develop & release
 
+Building from source is for development and requires **Go 1.27.2+**:
+
 ```sh
+git clone git@github.com:darthnithin/perch.git
+cd perch
+make build
+./bin/perch --demo --no-config
+
 make check                       # Go race tests, vet, formatting
 python3 -m venv .venv
 .venv/bin/pip install -r tools/requirements.txt
