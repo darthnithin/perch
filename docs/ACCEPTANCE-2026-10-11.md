@@ -3,16 +3,16 @@
 This update supplements the [readiness audit](READINESS.md). The user accepted
 the slower curved flight, ordinary connection/reconnect and quit, completion
 banners, mouse navigation, output scrolling and compact resizing. The current
-tested draft is **`v0.1.0-preview.2`**, built from `efb9d02`; all four packaged
+tested draft is **`v0.1.0-preview.3`**, built from `3841b35`; all four packaged
 platforms have runtime evidence, with Mac Intel tested through Rosetta.
 
 Actual password/MFA-expiry recovery and GPU-shell behavior remain unverified.
 The user selected MIT for code and reserved Chip artwork. Public distribution
-awaits licensed replacement packages and explicit publication approval. The accepted
+awaits explicit publication approval; licensed packages are verified. The accepted
 native checks should not be repeated without a relevant change.
 
 The sections below are a chronological record. Statements about pending motion
-approval and preview 1 describe earlier checkpoints; the final preview-2 section
+approval and earlier previews describe earlier checkpoints; the final preview-3 section
 records the current packaged result. Tooling added after that source commit does
 not silently replace the tested archives.
 
@@ -255,3 +255,40 @@ The complete CI run for Homebrew preparation commit `98a38ec` passed:
 It includes Go race tests, vet/formatting, MCP, dependency notices, the six
 Homebrew generator checks, all 48 terminal scripts and six-state Chip playback.
 The later hostname-only test update also passed `go test ./cmd/perch` locally.
+
+## Licensed preview 3; original history retained
+
+The user selected MIT for software and reserved Chip artwork, with the documented
+permissions to build/run Perch, redistribute unchanged official packages and
+share credited screenshots/recordings. Both notices are included in
+`v0.1.0-preview.3`, built from clean source
+`3841b358857346f402ac2effd4a3451c011a0951` on the original Git history.
+The user declined repository replacement and history rewriting; neither was
+performed. Current tracked examples use a synthetic identity. Historical
+username references remain in the original commits by that decision.
+
+All four archives passed architecture, checksum, linked-documentation,
+original-artwork and dependency-notice verification. Both licensing files matched
+source, and no personal UCSC username was found in their files. Five uploaded
+asset digests matched local files. The original detailed art and approved README
+media are unchanged. Packaging source has `vcs.modified=false`.
+
+Exact packaged CLI/MCP/PTY checks passed on native Mac ARM, Mac Intel through
+Rosetta, native Hummingbird Linux x86 in job **810726** (COMPLETED 0:0, 36 seconds,
+temporary stage removed), and native Linux ARM in
+[run 38179608391](https://github.com/darthnithin/perch/actions/runs/38179608391).
+Homebrew's isolated four-platform selection/install check passed with both license
+notices; the Mac installed binaries also passed version/demo checks. Full
+Homebrew installer/linking/upgrade/uninstall behavior remains separate.
+
+Source CI `38178511754` passed all 48 terminal scripts and Chip playback; its
+downloaded log was checked against the Makefile's complete script list. Later
+source differences are documentation, licensing, packaging and a synthetic test
+hostname; application behavior is unchanged.
+
+Local reports: `output/validation/preview3-source.json`, `preview3-archives.json`,
+`preview3-runtime-arm64.json`, `preview3-runtime-amd64.json`,
+`preview3-linux-live.json`, `preview3-linux-arm-runtime/runtime.json`,
+`preview3-homebrew-install.json`, and `preview3-publication-summary.json`.
+The hosted release is a draft and the repository remains private. No Homebrew
+tap or public release was published.
