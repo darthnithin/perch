@@ -340,3 +340,32 @@ preview-3 runtime reports and archive digests were rechecked at closeout. The
 repository is private and the release is still a draft. Public release and a
 Homebrew tap have not been authorized or published. Existing NRP work is retained
 as requested. The original repository and Git history are preserved.
+
+## Public distribution and installation
+
+The user explicitly authorized making the repository public and adding Homebrew
+and Linux installation. The existing repository is now public; preview 3 is a
+published prerelease with unchanged archive bytes. The public tap is
+[darthnithin/homebrew-tap](https://github.com/darthnithin/homebrew-tap).
+Unauthenticated GitHub API and raw README reads verified visibility, all five
+asset digests and the published README bytes.
+
+`brew install darthnithin/tap/perch` succeeded on the Mac ARM host, downloading
+and linking the public archive. `brew test darthnithin/tap/perch` passed its version
+and offline demo assertions. The installed executable SHA-256 matched the tested
+Mac ARM preview. This leaves Perch installed on the development Mac; no terminal
+profile or saved Perch preferences were changed. Homebrew's own test tooling
+installed its required Ruby gems. Upgrade to a newer Perch version and uninstall
+were not exercised.
+
+The exact Linux shell block from `docs/INSTALL.md` was run on native x86-64 and
+ARM64 runners in [run 38181442193](https://github.com/darthnithin/perch/actions/runs/38181442193).
+Both downloaded without GitHub authentication, verified checksums, installed to
+a temporary prefix, matched independently recorded executable hashes, returned
+the expected version and demo jobs, and preserved the bundled license notices.
+This is direct Linux installation evidence; Linux Homebrew installation has not
+been run. Existing four-platform runtime and Mac Intel/Rosetta limits still apply.
+
+Local evidence: `output/validation/public-release.json`,
+`public-homebrew-install.log`, `public-homebrew-test.log`,
+`public-linux-install.json`, and `public-linux-install.log`.

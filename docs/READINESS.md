@@ -223,3 +223,10 @@ the exact previously verified archives. The separate public Homebrew tap is
 [darthnithin/homebrew-tap](https://github.com/darthnithin/homebrew-tap).
 Installation instructions are in [INSTALL.md](INSTALL.md). The earlier private
 draft observations above remain provenance for the same release bytes.
+
+Public installation verification: actual Homebrew download/install/link and
+`brew test` passed on Mac ARM. The documented Linux install passed on native
+x86-64 and ARM64 in [run 38181442193](https://github.com/darthnithin/perch/actions/runs/38181442193).
+Executable hashes and installed license notices matched. Linux Homebrew and an
+upgrade to a future version have not been exercised. See the final public
+installation section in the [acceptance record](ACCEPTANCE-2026-10-11.md).
