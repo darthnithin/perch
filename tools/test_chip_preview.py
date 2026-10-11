@@ -26,7 +26,7 @@ def main():
         s.wait('paused')
         observed = frames(s)
         assert 1 < observed['idle'] < 32, observed
-        assert observed['running']-1 in (2*(observed['idle']-1), 2*(observed['idle']-1)+1), observed
+        assert 0 <= (observed['running']-1) - 4*(observed['idle']-1) < 4, observed
         assert len({v for k, v in observed.items() if k != 'running'}) == 1
         s.pump(.2)
         assert frames(s) == observed, 'paused clocks continued'
@@ -42,7 +42,7 @@ def main():
     s = Session(['--sample', '--state', 'running'], 48, 22, binary=ROOT/'bin/chip-preview')
     try:
         s.wait('fixed pose')
-        assert '40 ms' in s.text
+        assert '20 ms' in s.text
         s.key(' ')
         s.wait('playing')
         s.pump(.2)

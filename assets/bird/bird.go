@@ -17,20 +17,27 @@ var frames map[string][]string
 var loadErr error
 var posters = map[string]int{"idle": 0, "running": 1, "queued": 8, "complete": 11, "attention": 0, "reconnecting": 23}
 
-// FrameInterval controls terminal playback without rewriting the original art
-// or its web/GIF timing. Every source frame is retained at the faster wingbeat.
+// FrameInterval controls terminal playback independently of the original web art.
+// Running samples a slower, 640 ms stroke at 20 ms intervals.
 func FrameInterval(state string) time.Duration {
 	if state == "running" {
-		return 40 * time.Millisecond
+		return 20 * time.Millisecond
 	}
 	return 80 * time.Millisecond
+}
+
+func terminalSource(state string) string {
+	if state == "running" {
+		return "terminal-running-strip.png"
+	}
+	return state + "-strip.png"
 }
 
 func Load() error {
 	once.Do(func() {
 		frames = map[string][]string{}
 		for state := range posters {
-			f, e := images.Open(state + "-strip.png")
+			f, e := images.Open(terminalSource(state))
 			if e != nil {
 				loadErr = e
 				return

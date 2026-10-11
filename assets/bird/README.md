@@ -70,12 +70,21 @@ this review tool only. `--static` starts paused; `--json` exports ANSI review fr
 The main TUI plays completion once before returning to the current workload state.
 `--reduced-motion` uses static posters, and compact/no-color views omit Chip.
 
-The workspace plays the running wingbeat at 40 ms per frame (2× the original
-80 ms cadence), retaining every original frame. Other states remain at 80 ms.
+The workspace uses `terminal-running-strip.png` for flight: a separate 64-frame
+strip derived from the slower figure-eight study. A stroke takes 640 ms with
+32 poses sampled at 20 ms intervals. The original body, face and 1.28-second
+hover cadence remain intact. Other states still use their original strips at
+80 ms. The original `running-strip.png` and web/GIF files remain unchanged.
+Regenerate only the terminal flight strip with:
+
+```sh
+.venv/bin/python tools/chip_wing_study.py --export
+```
+
 The developer review now uses the same playback intervals as the workspace.
 Each state is labelled with its frame index and cadence. Pausing freezes both
 clocks; arrow keys align all states to one source frame for direct comparisons.
-Single-state `--sample --state running` uses the faster wingbeat as well.
+Single-state `--sample --state running` uses the same slower stroke.
 These terminal playback choices do not alter the original web/GIF assets.
 
 `make chip-test` verifies playback, pause, aligned stepping, a running-state

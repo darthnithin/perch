@@ -3,7 +3,7 @@
 
 macOS development tool using installed Ioskeley and offline CoreText drawing.
 Does not control Terminal.app, change settings, or fabricate glyph geometry.
-Run with --animate to capture a 64-frame, 40 ms wingbeat loop as a GIF.
+Run with --animate to capture 64 samples at the terminal's 20 ms running cadence.
 """
 import argparse
 import json
@@ -17,8 +17,10 @@ from test_terminal import Session, ROOT
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--animate', action='store_true')
+parser.add_argument('--output', type=Path, help='separate review directory; does not publish media')
 args = parser.parse_args()
-out = ROOT / 'output' / 'readme' / ('animated' if args.animate else 'static')
+out = args.output or ROOT / 'output' / 'readme' / ('animated' if args.animate else 'static')
+frame_ms = 20
 out.mkdir(parents=True, exist_ok=True)
 arguments = ['--demo', '--no-config']
 if not args.animate:
@@ -45,7 +47,7 @@ try:
     start = time.monotonic()
     screens = []
     for index in range(64 if args.animate else 1):
-        s.pump(max(0, start + index * .04 - time.monotonic()))
+        s.pump(max(0, start + index * frame_ms / 1000 - time.monotonic()))
         screens.append(capture())
     (out / 'screens.json').write_text(json.dumps(screens))
     (out / 'screen.txt').write_text(s.text)
@@ -63,14 +65,14 @@ if args.animate:
     palette = frames[0].quantize(colors=256)
     indexed = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
     indexed[0].save(out / 'workspace.gif', save_all=True, append_images=indexed[1:],
-                    duration=40, loop=0, optimize=True, disposal=1)
+                    duration=frame_ms, loop=0, optimize=True, disposal=1)
     with Image.open(out / 'workspace.gif') as gif:
         count = gif.n_frames
         duration = 0
         for i in range(count):
             gif.seek(i)
             duration += gif.info['duration']
-        assert count > 8 and duration == len(screens) * 40
+        assert count > 8 and duration == len(screens) * frame_ms
         print(f'GIF verified: {gif.size}, {count} encoded frames, {duration} ms, {(out / "workspace.gif").stat().st_size} bytes')
 else:
     shutil.copyfile(out / 'frame-000.png', out / 'workspace.png')

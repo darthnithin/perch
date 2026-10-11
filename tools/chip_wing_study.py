@@ -1,7 +1,8 @@
-"""Review one slow figure-eight wing stroke without replacing the shipped art.
+"""Review and export the terminal figure-eight stroke, preserving original art.
 
 Render: .venv/bin/python tools/chip_wing_study.py --render
 Terminal: .venv/bin/python tools/chip_wing_study.py --play
+Export: .venv/bin/python tools/chip_wing_study.py --export
 The terminal preview uses the current font; use the supplied Ioskeley profile.
 """
 import argparse
@@ -149,7 +150,7 @@ def screens(frames):
             label(1, y, "│" + text.ljust(49) + "│")
         label(1, 14, "╰" + "─" * 49 + "╯", "e6ad8f")
         label(1, 16, "Same body hover / half-speed wingbeat")
-        label(1, 17, "Motion study; not the shipped animation")
+        label(1, 17, "Terminal motion / original web artwork preserved")
         assert all(len(row) == 54 for row in grid)
         result.append(dict(columns=54, rows=19, cells=grid))
     return result
@@ -258,12 +259,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--render", action="store_true")
     parser.add_argument("--play", action="store_true")
+    parser.add_argument("--export", action="store_true", help="write the separate terminal flight strip")
     args = parser.parse_args()
-    if not (args.render or args.play):
-        parser.error("choose --render or --play")
-    sources = list((ROOT / "assets/bird").glob("*.png"))
+    if not (args.render or args.play or args.export):
+        parser.error("choose --render, --play or --export")
+    target = ROOT / "assets/bird/terminal-running-strip.png"
+    sources = [p for p in (ROOT / "assets/bird").glob("*.png") if p != target]
     before = {p: hashlib.sha256(p.read_bytes()).digest() for p in sources}
     frames = sprites(original_art())
+    if args.export:
+        strip = Image.new("RGBA", (32 * COUNT, 32))
+        for i, frame in enumerate(frames):
+            strip.paste(frame, (32 * i, 0))
+        strip.save(target)
+        print(f"Exported {target}; {FRAME_MS} ms frames, 640 ms wingbeat")
     data = screens(frames)
     if args.render:
         render(data)

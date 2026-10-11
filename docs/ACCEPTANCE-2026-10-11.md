@@ -62,8 +62,8 @@ credentials and actual password/MFA prompt handling remain unverified.
 The user rejected the fixed-body and extra-position comparisons, then clarified
 that the up-and-down hover is welcome: the wing movement feels too linear.
 They requested a slower preview and suggested a spring or figure-eight stroke.
-The shipped source still cycles through eight wing-tip positions at 40 ms per
-frame and shifts the body by one pixel during part of the loop.
+The private packaged preview cycles through eight wing-tip positions at 40 ms
+per frame and shifts the body by one pixel during part of the loop.
 
 The first isolated figure-eight study kept
 the original body, head, bill, tail and hover cadence, with a 640 ms wingbeat
@@ -86,7 +86,8 @@ pixels remain identical across every frame after accounting for the hover.
 The loop boundary changes fewer pixels than the largest ordinary adjacent
 transition; that is a continuity check, not proof of natural-looking motion.
 The 20 ms terminal preview passed quit, SIGTERM and narrow-window cleanup checks.
-Original art is retained. This refinement is still a review study.
+Original art is retained. The refined stroke is now integrated into the local
+application for review, as described below; visual acceptance remains open.
 
 To inspect in the supplied Ioskeley Terminal profile:
 
@@ -96,7 +97,8 @@ To inspect in the supplied Ioskeley Terminal profile:
 
 Space pauses, arrow keys step and `q` exits. To recreate the GIF and pose sheet
 on macOS, use `--render`. The study uses the existing local Pillow environment
-and CoreText renderer. The production animation is not replaced by this tool.
+and CoreText renderer. `--export` writes only the separate terminal flight strip;
+`--play` and `--render` do not change application artwork.
 
 Local evidence is retained under `output/validation/` (not shipped):
 `oct11-private-publication-summary.json`, `oct11-private-linux-arm-runtime/runtime.json`,
@@ -121,3 +123,36 @@ The Ioskeley before/after renders are in `output/design/interface-review-oct11/`
 [CI run 38175760369](https://github.com/darthnithin/perch/actions/runs/38175760369)
 tests this source change; its final conclusion is not yet recorded here.
 The private draft still packages `c89be60` and does not include this newer layout.
+
+## Refined flight integrated into the local application
+
+The local source now uses `assets/bird/terminal-running-strip.png` for running
+Chip in both the workspace and developer preview. The terminal strip contains
+64 frames at 20 ms: two 640 ms strokes and one unchanged 1.28-second body hover.
+All 21 checksum-protected original images remain unchanged. The terminal export
+is reproducible with `tools/chip_wing_study.py --export`; the other five states
+retain their original artwork and 80 ms interval. This follows the user's
+“Closer—refine this motion” direction; it does not claim final visual approval.
+
+The developer preview now advances the other states every four flight samples,
+retaining their actual timing. Its clock unit tests and six-state PTY test pass,
+including pause, aligned stepping, single-state playback and terminal cleanup.
+The first full check exposed unit tests that still referenced the old half-tick
+clock; those tests were updated for the four-sample cadence and passed.
+UI/bird tests, static-reader navigation, general workspace keyboard navigation
+and mouse/resize PTYs passed with the new animation enabled. The full Go race
+suite, vet and formatting checks passed. An ignored `output/go.mod` separates
+generated release copies and cached dependencies from the application packages;
+without that local artifact boundary, vet also scanned a cached dependency
+benchmark and reported unused return values outside Perch source.
+
+The full workspace was captured from the actual app in a PTY, then rendered with
+Ioskeley Mono 12 pt, 0.90 spacing and a 2× CoreText raster. The review clip at
+`output/design/wing-eight-workspace/workspace.gif` is 2080×1332, 55 encoded
+frames over 1.28 seconds (64 captured samples). It is an emulator/CoreText
+preview, not a native Terminal.app capture. The README media and private release
+archives still contain their earlier animation and have not been replaced.
+
+`output/design/wing-eight-workspace/validation.json` binds the reviewed binary,
+terminal strip, authoring script, profile and GIF to SHA-256 hashes. All 64
+exported frames matched the study, and all 21 original-artwork checksums passed.

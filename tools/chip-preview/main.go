@@ -22,7 +22,7 @@ type tick time.Time
 type model struct {
 	frame, width       int
 	runningFrame       int
-	halfTick           bool
+	slowElapsed        time.Duration
 	paused             bool
 	sampleState, label string
 }
@@ -48,11 +48,11 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "right":
 			m.paused = true
 			m.frame = (m.frame + 1) % 64
-			m.runningFrame, m.halfTick = m.frame, false
+			m.runningFrame, m.slowElapsed = m.frame, 0
 		case "left":
 			m.paused = true
 			m.frame = (m.frame + 63) % 64
-			m.runningFrame, m.halfTick = m.frame, false
+			m.runningFrame, m.slowElapsed = m.frame, 0
 		}
 	case tick:
 		if !m.paused {
@@ -60,8 +60,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.frame = (m.frame + 1) % 64
 			} else {
 				m.runningFrame = (m.runningFrame + 1) % 64
-				m.halfTick = !m.halfTick
-				if !m.halfTick {
+				m.slowElapsed += bird.FrameInterval("running")
+				if m.slowElapsed >= bird.FrameInterval("idle") {
+					m.slowElapsed -= bird.FrameInterval("idle")
 					m.frame = (m.frame + 1) % 64
 				}
 			}

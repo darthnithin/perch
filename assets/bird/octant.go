@@ -18,7 +18,7 @@ func OctantFrame(state string, frame int, static bool) []string {
 	octantOnce.Do(func() {
 		octantFrames = make(map[string][][]string)
 		for name := range posters {
-			f, err := images.Open(name + "-strip.png")
+			f, err := images.Open(terminalSource(name))
 			if err != nil {
 				continue
 			}

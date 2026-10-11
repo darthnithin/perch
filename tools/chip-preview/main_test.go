@@ -14,24 +14,24 @@ func TestPlaybackPreservesEveryRunningFrameAndSlowerOtherStates(t *testing.T) {
 	for i := 1; i <= 128; i++ {
 		next, cmd := m.Update(tick(time.Time{}))
 		m = next.(model)
-		if cmd == nil || m.runningFrame != i%64 || m.frame != (i/2)%64 {
+		if cmd == nil || m.runningFrame != i%64 || m.frame != (i/4)%64 {
 			t.Fatalf("tick %d skipped or mistimed a source frame: %+v", i, m)
 		}
 	}
-	if bird.FrameInterval("running") != 40*time.Millisecond || bird.FrameInterval("idle") != 80*time.Millisecond {
+	if bird.FrameInterval("running") != 20*time.Millisecond || bird.FrameInterval("idle") != 80*time.Millisecond {
 		t.Fatal("terminal playback cadence changed")
 	}
 }
 
 func TestPauseAndManualStepAlignTheComparison(t *testing.T) {
-	m := model{width: 120, frame: 7, runningFrame: 15, halfTick: true, paused: true}
+	m := model{width: 120, frame: 7, runningFrame: 15, slowElapsed: 60 * time.Millisecond, paused: true}
 	next, _ := m.Update(tick(time.Time{}))
 	if next.(model) != m {
 		t.Fatal("paused review advanced")
 	}
 	next, _ = m.Update(tea.KeyPressMsg{Code: tea.KeyRight})
 	m = next.(model)
-	if !m.paused || m.frame != 8 || m.runningFrame != 8 || m.halfTick {
+	if !m.paused || m.frame != 8 || m.runningFrame != 8 || m.slowElapsed != 0 {
 		t.Fatal("stepping did not align clocks", m)
 	}
 	if strings.Count(m.View().Content, "#08") != 6 {
