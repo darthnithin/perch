@@ -25,9 +25,9 @@ func (m *Model) logHeading(width int) string {
 	return joinLR(accent.Render(kind), state, width)
 }
 
-// Give short log, script, inspector and priority views four more rows while no input is
-// being edited. Rendering and pointer geometry use the same decision.
+// Give short reading/resource views four more rows while no input is being
+// edited. Rendering and pointer geometry use the same decision.
 func (m *Model) compactTextReading() bool {
-	reading := m.view == "logs" || m.view == "script" || m.view == "inspect" || m.view == "software" && m.softwareRequest.Command == "priority"
+	reading := m.view == "logs" || m.view == "script" || m.view == "inspect" || m.view == "resources" || m.view == "software" && m.softwareRequest.Command == "priority"
 	return reading && m.height <= 24 && !m.input.Focused() && !m.readerSearchEditing() && !m.help && !m.palette
 }

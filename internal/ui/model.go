@@ -492,7 +492,7 @@ func (m *Model) Update(message tea.Msg) (tea.Model, tea.Cmd) {
 func (m *Model) syncPanel() {
 	m.panel.SetWidth(max(10, m.width-8))
 	m.panel.SetHeight(max(1, m.height-14))
-	if m.view == "inspect" && m.compactTextReading() {
+	if (m.view == "inspect" || m.view == "resources") && m.compactTextReading() {
 		m.panel.SetHeight(max(1, m.layout().bodyHeight-2))
 	}
 	content := ""
