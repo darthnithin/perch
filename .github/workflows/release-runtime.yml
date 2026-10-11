@@ -1,0 +1,74 @@
+name: Packaged Linux ARM runtime
+run-name: Linux ARM runtime for ${{ inputs.release_version }}
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Existing private draft/release tag
+        required: true
+        type: string
+      archive_sha256:
+        description: Independently verified Linux ARM archive SHA-256
+        required: true
+        type: string
+      binary_sha256:
+        description: Independently verified packaged executable SHA-256
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  runtime:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 10
+    env:
+      RELEASE_VERSION: ${{ inputs.release_version }}
+      ARCHIVE_SHA256: ${{ inputs.archive_sha256 }}
+      BINARY_SHA256: ${{ inputs.binary_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate inputs and native host
+        run: |
+          python3 - <<'PY'
+          import os, platform, re
+          assert platform.system() == 'Linux' and platform.machine() == 'aarch64'
+          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', os.environ['RELEASE_VERSION'])
+          for name in ('ARCHIVE_SHA256', 'BINARY_SHA256'):
+              assert re.fullmatch(r'[0-9a-f]{64}', os.environ[name]), name
+          PY
+      - name: Download existing private release archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(gh repo view "$GITHUB_REPOSITORY" --json isPrivate --jq .isPrivate)" = true
+          gh release download "$RELEASE_VERSION" --repo "$GITHUB_REPOSITORY" \
+            --pattern "perch-${RELEASE_VERSION}-linux-arm64.tar.gz" --dir artifact
+      - name: Verify archive and extract only the executable
+        run: |
+          python3 - <<'PY'
+          import hashlib, os, tarfile
+          from pathlib import Path
+          archive = Path('artifact') / ('perch-' + os.environ['RELEASE_VERSION'] + '-linux-arm64.tar.gz')
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == os.environ['ARCHIVE_SHA256']
+          with tarfile.open(archive) as tar:
+              members = [m for m in tar.getmembers() if m.name == 'perch']
+              assert len(members) == 1 and members[0].isfile()
+              binary = tar.extractfile(members[0]).read()
+          assert hashlib.sha256(binary).hexdigest() == os.environ['BINARY_SHA256']
+          path = Path('artifact/perch')
+          path.write_bytes(binary)
+          path.chmod(0o700)
+          PY
+      - name: Exercise packaged CLI, MCP and terminal interactions
+        run: |
+          python3 tools/test_release_runtime.py artifact/perch --version "$RELEASE_VERSION" > artifact/runtime.json
+          cat artifact/runtime.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-arm-runtime
+          path: artifact/runtime.json
+          if-no-files-found: warn
+          retention-days: 30
