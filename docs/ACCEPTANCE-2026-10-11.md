@@ -320,3 +320,23 @@ behavior. The compact setup emulator render was reviewed. Evidence:
 The current MCP guide and example now lead with the prebuilt executable and
 explain its absolute path. The original preview-3 archive remains immutable;
 those documentation refinements are in the source checkout for the next package.
+
+## Final user acceptance
+
+After being asked whether the earlier successful login involved an actual
+password/MFA prompt, the user could not remember and then said, “dude i think
+everything is fine.” The delivered native experience is accepted. Do not request
+another routine acceptance pass or hold the build/preparation goal open solely
+for that unanswered observation. Password/MFA expiry and GPU-allocation shell
+behavior remain explicitly unverified; no test result has been upgraded.
+
+The completion audit retains the original requirements in the readiness table:
+polished workspace and approved Chip animation; keyboard and mouse navigation;
+CLI and read-only MCP guidance; Hummingbird discovery and workload preparation,
+submission, shell and cancellation actions; Git tracking, the illustrated README,
+private publication and release preparation. Their source, live and packaged
+verification evidence is linked above and in the validation history. All four
+preview-3 runtime reports and archive digests were rechecked at closeout. The
+repository is private and the release is still a draft. Public release and a
+Homebrew tap have not been authorized or published. Existing NRP work is retained
+as requested. The original repository and Git history are preserved.

@@ -1,6 +1,6 @@
 # Perch readiness
 
-Current audit: October 11, 2026. **The build goal remains active.** Perch has a
+Current audit: October 11, 2026. **Build and private release preparation accepted.** Perch has a
 working Hummingbird workspace, CLI, read-only MCP server and explicit workload
 actions. The private draft is **`v0.1.0-preview.3`**. The application validation baseline is
 **`3841b35`** (the tested preview source), with checks scoped below.
@@ -155,7 +155,7 @@ supplement the automated navigation tests. No native app-control
 restriction has been bypassed, and a known-good older screenshot does not certify
 all current screens or states.
 
-## Open acceptance and implementation work
+## Accepted release scope and retained limitations
 
 1. **Native experience accepted.** The user accepted the slower running motion
    and normal keyboard/mouse navigation, output scrolling and compact resizing
@@ -182,9 +182,17 @@ all current screens or states.
    All four current archive runtimes passed. The user selected MIT code and reserved
    Chip artwork; both notices are included in verified preview-3 archives. The user chose to retain the existing repository and history. The user authorized a private GitHub repository and release preparation.
    Public publication and contacting administrators remain separate actions.
-6. **Final completion audit.** Revisit every row above and the authoritative
-   architecture/feature documents. Unverified native behavior
-   and unimplemented in-scope requirements cannot be closed by a clean build.
+6. **Completion decision.** The requirement table above covers the original
+   workspace/design, Chip, keyboard/mouse navigation, CLI/MCP, cluster discovery,
+   workload actions, private Git publication, README and release-preparation
+   requirements. Source CI, live workload evidence, packaged runtime reports and
+   the user’s native acceptance supply distinct evidence for those requirements.
+   After the remaining authentication uncertainty was explained, the user said
+   “dude i think everything is fine.” Accept the delivered experience and close
+   the build/preparation work; do not reopen the same native checklist. This does
+   not turn untested password/MFA or GPU behavior into a passed check. Public
+   publication and the Homebrew installation lifecycle remain separate future
+   distribution actions, not completed actions.
 
 ## Candidate and policy boundaries
 
