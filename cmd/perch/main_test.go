@@ -9,7 +9,7 @@ import (
 )
 
 func TestInterspersedFlags(t *testing.T) {
-	for _, args := range [][]string{{"logs", "9100_11", "--stderr", "--host", "ndanday@hb.ucsc.edu"}, {"--host=ndanday@hb.ucsc.edu", "logs", "--stderr", "9100_11"}} {
+	for _, args := range [][]string{{"logs", "9100_11", "--stderr", "--host", "researcher@hb.ucsc.edu"}, {"--host=researcher@hb.ucsc.edu", "logs", "--stderr", "9100_11"}} {
 		fs := flag.NewFlagSet("test", flag.ContinueOnError)
 		host := fs.String("host", "", "")
 		stderr := fs.Bool("stderr", false, "")
@@ -20,7 +20,7 @@ func TestInterspersedFlags(t *testing.T) {
 		if err = fs.Parse(ordered); err != nil {
 			t.Fatal(err)
 		}
-		if *host != "ndanday@hb.ucsc.edu" || !*stderr || !reflect.DeepEqual(fs.Args(), []string{"logs", "9100_11"}) {
+		if *host != "researcher@hb.ucsc.edu" || !*stderr || !reflect.DeepEqual(fs.Args(), []string{"logs", "9100_11"}) {
 			t.Fatalf("bad parse: %+v %s %v", fs.Args(), *host, *stderr)
 		}
 	}

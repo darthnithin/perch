@@ -12,8 +12,9 @@ terminal or application state.
 2. Download [Perch-Ioskeley.terminal](Perch-Ioskeley.terminal). On GitHub, use the
    file's **Download raw file** button rather than saving the HTML page.
 3. Double-click the file to import/open it in Terminal.app. It opens a normal shell.
-4. From the source checkout, run `./bin/perch --demo --no-config` or connect with
-   `./bin/perch --host your-cruzid@hb.ucsc.edu`.
+4. From the extracted preview folder, run `./perch --demo --no-config` or connect
+   with `./perch --host your-cruzid@hb.ucsc.edu`. From a built source checkout,
+   use `./bin/perch` instead. If Perch is installed on your PATH, use `perch`.
 
 The profile has a warm charcoal background, cream text, peach cursor, normal
 character width, and a 140-column × 44-row starting window. It contains no

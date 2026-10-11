@@ -128,7 +128,7 @@ exact invocation, not an assumption based on a similar command. [scancel referen
 
 ## Live observations
 
-Both probes used Slurm 25.11.4 and `scancel --ctld --user=ndanday
+Both probes used Slurm 25.11.4 and `scancel --ctld --user=researcher
 --state=STATE -- ARRAY_TASK`. Each submitted its own two-task array, saved the
 receipt, and verified username, job name, unique comment and parent array ID
 before cancellation. No existing workload was accepted by the harness.

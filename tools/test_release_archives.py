@@ -83,13 +83,13 @@ def main():
                 assert m.isfile() or m.isdir(), 'unexpected link/device: '+m.name
                 assert not any(part.startswith('._') or part == '.DS_Store' for part in Path(m.name).parts), m.name
                 assert not m.pax_headers, 'nonportable extended metadata'
-            for name in ['perch','README.md','ARCHITECTURE.md','docs/MCP.md',
+            for name in ['perch','README.md','ARCHITECTURE.md','LICENSE','assets/bird/LICENSE','docs/MCP.md',
                          'examples/mcp-config.json','assets/bird/manifest.json',
                          'THIRD_PARTY_NOTICES.md','third_party/manifest.json']:
                 assert name in names, name
             assert tar.getmember('perch').mode & 0o111, 'binary is not executable'
             for m in members:
-                if m.isfile() and (m.name in ('README.md', 'ARCHITECTURE.md') or
+                if m.isfile() and (m.name in ('README.md', 'ARCHITECTURE.md', 'LICENSE') or
                                    m.name.startswith(('docs/', 'examples/'))):
                     assert tar.extractfile(m).read() == (root/m.name).read_bytes(), 'stale packaged documentation: '+m.name
                 if m.isfile() and m.name.endswith('.md'):

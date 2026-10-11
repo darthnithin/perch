@@ -1,6 +1,6 @@
 # Preparing a Perch release
 
-Perch is a private Hummingbird development preview. The current product scope
+Perch is a Hummingbird terminal workspace in preview. The current product scope
 excludes NRP: its existing source, fixtures and tests are preserved as deferred
 experiments. Nothing in this checklist authorizes publishing the repository.
 
@@ -43,7 +43,7 @@ host architecture and executable hash. Preserve that report with the release
 evidence before its 30-day artifact retention expires. A green run covers those
 checks, not native desktop fonts or authentication to Hummingbird.
 
-## Private preview handoff
+## Preview preparation
 
 Push reviewed source to the private repository. Verify the remote is private and
 its commit matches the local checkout. A private GitHub draft release can be
@@ -52,10 +52,13 @@ release. Record incomplete native or platform checks in its notes.
 
 ## Before public release
 
-Choose the project and artwork licenses explicitly, finish the remaining
-acceptance gates, select a version, and review the exact release contents.
-Third-party notices do not license Perch itself. Public visibility, public
-releases and a Homebrew tap require a separate user instruction.
+The code and documentation use the root MIT license; Chip artwork uses the
+reserved terms in `assets/bird/LICENSE`. Include both with every archive and
+Homebrew installation, along with third-party notices. Finish the applicable
+acceptance checks, select a version, and review the exact release contents.
+Public visibility, public releases and a Homebrew tap require a separate user
+instruction. Older unlicensed previews also contain identifying test history;
+keep them private and rebuild the candidate from the anonymized source.
 
 ## Prepare a Homebrew tap formula
 

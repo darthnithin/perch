@@ -88,7 +88,7 @@ The user explicitly authorized small Hummingbird test submissions on October 9. 
 - Job 801446 completed with exit `0:0` after 4m01s. Accounting reports 28,012 KiB batch task peak RSS and 4.838 CPU-seconds. Perch observed the running job, growing output, separate stderr, captured script, live charts, reconnect and accounting-confirmed completion.
 - The first acceptance harness reached completion but chose an unrelated history entry for its final log check. The harness now selects the exact job ID; the shorter repeat on job 801460 passed every step, including final output and terminal restoration. It completed with exit `0:0` after 2m12s, with 19,804 KiB peak RSS and 2.634 CPU-seconds. This was a harness selection error, not evidence that the smoke job failed.
 - A separate check on the latest build verified real interactive SSH suspension, alternate-screen re-entry, restored connection and cooked terminal flags on exit. This uses existing SSH authentication; password/MFA entry and genuine network-loss recovery are still separate acceptance cases.
-- `PERCH_LOG_TEST_HOST=ndanday@hb.ucsc.edu go test -count=1 ./internal/hummingbird -run TestLogLifecycleIntegration -v` passed initial reads, incremental appends, truncation, rotation, the 256 KiB limit, missing files, FIFO rejection, and paths containing spaces, quotes, shell syntax and literal `%j`. Only synthetic files in a private temporary directory were changed, then removed.
+- `PERCH_LOG_TEST_HOST=researcher@hb.ucsc.edu go test -count=1 ./internal/hummingbird -run TestLogLifecycleIntegration -v` passed initial reads, incremental appends, truncation, rotation, the 256 KiB limit, missing files, FIFO rejection, and paths containing spaces, quotes, shell syntax and literal `%j`. Only synthetic files in a private temporary directory were changed, then removed.
 - Reconnect now invalidates cancelled detail replies while retaining visible data. Regression tests verify that a late reply cannot replace the retained log. Numeric resource parsing rejects NaN, infinity and overflow.
 - `make check` and `make terminal-test` passed. Use `-count=1` on live Go tests to prevent cached cluster results from being mistaken for fresh observations.
 
@@ -228,7 +228,7 @@ Live samples explicitly cover the batch step, display missing CPU readings, and
 both failed and successful queries obey the same 90-sample chart-history cap.
 No whole-job memory efficiency is inferred from task peaks.
 
-Live read-only checks: `perch resources 801460 --host ndanday@hb.ucsc.edu --json`
+Live read-only checks: `perch resources 801460 --host researcher@hb.ucsc.edu --json`
 reported 134,217,728 requested/allocated bytes, 20,279,296 peak-RSS bytes,
 2.634412 CPU-seconds, 132 elapsed seconds and 1.9957667% CPU efficiency.
 Independent `sacct --units=K` returned ReqMem=131072K, MaxRSS=19804K for
@@ -258,7 +258,7 @@ Open MPI is explicitly selected with `mpirun`. No implicit application upload,
 compilation or GPU rank assignment occurs.
 
 `TestHummingbirdTopologyIntegration` passed uncached in 77.58 seconds. It created
-the private synthetic workspace `/scratch/ndanday/perch-topology.SCdQKCOl` and
+the private synthetic workspace `/scratch/researcher/perch-topology.SCdQKCOl` and
 submitted three one-shot jobs, all confirmed COMPLETED through accounting:
 
 - **801973:** two independent tasks, IDs 0 and 1, on one node.
@@ -2111,8 +2111,8 @@ Evidence:
   its old bare hostname; its allowlist now explicitly names the synthetic
   destinations used in this test. That failure is retained in
   `setup-pty-20261010.txt`.
-- Read-only live check: `tools/test_setup.py --live-host ndanday@hb.ucsc.edu`
-  accepted the choice, connected as ndanday to Slurm 25.11.4, navigated Connection
+- Read-only live check: `tools/test_setup.py --live-host researcher@hb.ucsc.edu`
+  accepted the choice, connected as researcher to Slurm 25.11.4, navigated Connection
   and Jobs, then restored terminal modes on exit. It used `--no-config`, did not
   change saved preferences and submitted no jobs. Evidence:
   `output/terminal/setup-hummingbird-results.json` and
@@ -2141,7 +2141,7 @@ gates are in [CANCELLATION.md](CANCELLATION.md).
   and receipt, verifies owner/name/unique comment/array identity before actions,
   and finally cancels only its own remaining tasks. No automatic resubmission
   follows an ambiguous receipt. Python compilation passed.
-- Held array **802749**: cancelling `_0` through `scancel --ctld --user=ndanday
+- Held array **802749**: cancelling `_0` through `scancel --ctld --user=researcher
   --state=PENDING` changed its collapsed pending range from `0-1` to `1`; the
   sibling stayed held. Cleanup confirmed queue absence. No task-0 accounting
   record was observed, even in a later `sacct --array` query; task 1 was recorded

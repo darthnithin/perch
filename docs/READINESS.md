@@ -3,7 +3,7 @@
 Current audit: October 11, 2026. **The build goal remains active.** Perch has a
 working Hummingbird workspace, CLI, read-only MCP server and explicit workload
 actions. The private draft is **`v0.1.0-preview.2`**. The application validation baseline is
-**`efb9d02`** (the private preview source), with checks scoped below.
+**`efb9d02`** (the tested preview source), with checks scoped below.
 All four packaged platforms have runtime evidence. The user confirmed ordinary
 connect/reconnect, clean exit and completion banners with the local development
 binary. On October 11 they also accepted the slower running motion and
@@ -119,7 +119,7 @@ for current status and the history for provenance, failures and superseded work.
 | Move beyond monitoring: workload preparation | Offline resource/script preview, non-submitting validation, explicit one-shot submission, single/multi-node tasks, Open MPI, arrays/concurrency, successful-job dependencies, private submission journal and uncertain-receipt recovery. Production live job evidence is retained in history. | Arbitrary MPI ABI and multi-GPU placement are not certified. No automatic upload, retry or execution of viewed scripts. |
 | Allocation shells and cancellation | CLI and TUI review, fresh owned-attempt/node/scope validation, foreground shell return; separate job/task/whole-array cancellation, one-shot execution and honest receipts. Production live CLI/TUI evidence includes two-node CPU selection, Ctrl-C, return and parent survival on job 803078. See [shells](ALLOCATION-SHELL.md) and [cancellation](CANCELLATION.md). | Native shell interaction; GPU shell acceptance and layouts beyond the tested cases. One unmaterialized pending array task is selected through the CLI, not the grouped TUI row. Cancellation receipts are session-local plus exit text, not a durable journal. |
 | Preferences, cache and troubleshooting | Explicit saved destination/appearance, preview/apply, optional private bounded snapshots, metadata/raw diagnostic modes, corruption/ownership/type handling, atomic replacement. `internal/preferences`, `snapshotcache`, `diagnostics`, `launch/journal`; process tests. | Cache is display-only, not mutation authority. Logs/scripts/credentials are not cached. Raw diagnostic captures need deliberate review before sharing. |
-| Mac/Linux executable and eventual distribution | Four current candidate archives, checksums, doc/artwork comparison, binary target/dependency validation and runtime hash matching. Current Mac ARM, Linux x86 and Linux ARM tested natively; Mac Intel tested under Rosetta. | Repackage after further source changes; select licensing before publication. Source is tracked in the private darthnithin/perch repository. No public release or Homebrew tap is published. |
+| Mac/Linux executable and eventual distribution | Four current candidate archives, checksums, doc/artwork comparison, binary target/dependency validation and runtime hash matching. Current Mac ARM, Linux x86 and Linux ARM tested natively; Mac Intel tested under Rosetta. | Repackage from anonymized source after the privacy cleanup; include the MIT code license and reserved artwork terms. Source is tracked in the private darthnithin/perch repository. No public release or Homebrew tap is published. |
 | NRP (deferred; outside current scope) | Explicit namespace/context, typed Job/Pod/container identity, bounded HTTPS reads and log snapshots, explicit credential handling, CLI and namespace UI. Synthetic TLS/plugin/PTY coverage. See [NRP](NRP.md). | No configured context was found in the fresh local check. Quota reads, exact quantities and partial failures now have synthetic CLI/HTTPS/PTY coverage. On-demand Pod CPU/memory metrics also have synthetic parser, CLI, HTTPS and PTY coverage. Existing experimental code, tests and documentation are retained. No further NRP onboarding or implementation is required for the Hummingbird release. |
 
 ## Native review and observed limits
@@ -178,8 +178,8 @@ all current screens or states.
    the active Hummingbird scope.
 5. **Delivery.** The reconciled preview is verified as described above; repeat packaging
    and artifact/runtime identity checks after further accepted source changes.
-   All four current archive runtimes passed. Resolve project/artwork licensing before
-   publication. The user authorized a private GitHub repository and release preparation.
+   All four current archive runtimes passed. The user selected MIT code and reserved
+   Chip artwork; anonymize history and replace the older archives before publication. The user authorized a private GitHub repository and release preparation.
    Public publication and contacting administrators remain separate actions.
 6. **Final completion audit.** Revisit every row above and the authoritative
    architecture/feature documents. Unverified native behavior

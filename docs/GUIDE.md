@@ -6,7 +6,9 @@ A terminal workspace for UCSC Hummingbird. Prepare workloads, follow jobs and
 arrays, read output, and open a shell inside a running allocation. Review
 resources and scope before submitting or cancelling work.
 
-**Development build:** the monitoring interface and SSH adapter work, with unit, race, live-backend, and pseudo-terminal checks. The release audit is incomplete. See [readiness](../docs/READINESS.md) for outstanding work; this is not a published release.
+**Preview:** the workspace, CLI and MCP have unit, race, live-backend and
+pseudo-terminal checks. See [readiness](READINESS.md) for the exact tested scope
+and remaining limitations. Public downloads are still being prepared.
 
 ## Start here
 
@@ -780,7 +782,9 @@ For log-file lifecycle checks, opt in with `PERCH_LOG_TEST_HOST=your-cruzid@hb.u
 
 `testdata/monitor-smoke.sh` is an optional four-minute development workload (one CPU, 128 MiB request). Submit it explicitly with private, separate stdout/stderr paths, then run `.venv/bin/python tools/test_live_terminal.py your-cruzid@hb.ucsc.edu JOB_ID` while it is running. The harness checks live output, scripts, samples, reconnect, completion and terminal restoration. It never submits a job itself. Live tests use `-count=1` so Go cannot reuse a cached result from an earlier cluster state.
 
-Release tooling builds local macOS/Linux candidates for arm64 and amd64. Cross-compilation is not runtime verification. Publication and license selection are pending.
+Release tooling builds macOS/Linux candidates for arm64 and amd64. Cross-compilation
+is not runtime verification. Software is MIT licensed and Chip artwork is reserved;
+public downloads are still being prepared.
 
 ## Design and scope
 

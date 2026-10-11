@@ -17,10 +17,10 @@ for target in darwin/arm64 darwin/amd64 linux/arm64 linux/amd64; do
   stage=$(mktemp -d "dist/.perch-stage.XXXXXX")
   mkdir -p "$stage/package/assets"
   CGO_ENABLED=0 GOOS="$system" GOARCH="$architecture" go build -trimpath -ldflags "-s -w -X main.version=$version" -o "$stage/package/perch" ./cmd/perch
-  cp README.md ARCHITECTURE.md THIRD_PARTY_NOTICES.md "$stage/package/"
+  cp README.md ARCHITECTURE.md LICENSE THIRD_PARTY_NOTICES.md "$stage/package/"
   cp -R docs examples third_party "$stage/package/"
   cp -R assets/bird "$stage/package/assets/"
-  COPYFILE_DISABLE=1 tar --format=ustar --exclude='.DS_Store' --exclude='._*' -czf "$stage/archive.tar.gz" -C "$stage/package" perch README.md ARCHITECTURE.md THIRD_PARTY_NOTICES.md third_party docs examples assets
+  COPYFILE_DISABLE=1 tar --format=ustar --exclude='.DS_Store' --exclude='._*' -czf "$stage/archive.tar.gz" -C "$stage/package" perch README.md ARCHITECTURE.md LICENSE THIRD_PARTY_NOTICES.md third_party docs examples assets
   mv -f "$stage/archive.tar.gz" "dist/$name"
   rm -rf -- "$stage"
   stage=''
@@ -35,4 +35,4 @@ done
     sha256sum "$@" > "SHA256SUMS-$version.txt"
   fi
 )
-printf 'Local candidates built with linked documentation and original artwork. Runtime verification and license review are still required before publication.\n'
+printf 'Local candidates built with documentation, MIT software license, reserved artwork terms and third-party notices. Runtime verification is required before publication.\n'

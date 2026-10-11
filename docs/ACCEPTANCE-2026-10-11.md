@@ -1,8 +1,20 @@
 # October 11 acceptance update
 
-This update supplements the earlier [readiness audit](READINESS.md). The goal
-remains open: the user reported that the wings look uneven, and interactive
-authentication and GPU-shell acceptance still need evidence.
+This update supplements the [readiness audit](READINESS.md). The user accepted
+the slower curved flight, ordinary connection/reconnect and quit, completion
+banners, mouse navigation, output scrolling and compact resizing. The current
+tested draft is **`v0.1.0-preview.2`**, built from `efb9d02`; all four packaged
+platforms have runtime evidence, with Mac Intel tested through Rosetta.
+
+Actual password/MFA-expiry recovery and GPU-shell behavior remain unverified.
+The user selected MIT for code and reserved Chip artwork. Public distribution
+awaits anonymized history and replacement packages. The accepted
+native checks should not be repeated without a relevant change.
+
+The sections below are a chronological record. Statements about pending motion
+approval and preview 1 describe earlier checkpoints; the final preview-2 section
+records the current packaged result. Tooling added after that source commit does
+not silently replace the tested archives.
 
 ## Release and platform checks
 
@@ -202,3 +214,35 @@ Local evidence: `output/validation/preview2-source.json`, `preview2-archives.jso
 `oct11-approved-media-publication.json`. Source CI run 38176491104 completed successfully; its Go/MCP, 48 terminal
 scripts and Chip results supplement the exact packaged runtime evidence.
 The older preview 1 remains unchanged. No public release or VM was created.
+
+## Homebrew preparation and publication review
+
+Commit `98a38ec` adds a checksum-verified formula generator, six offline tests
+for its release selection/failure handling, and an isolated check using
+Homebrew's Formula DSL and install helpers. All four platforms selected the
+correct archive/checksum and installed the executable, documentation, profile,
+artwork and notices into temporary directories. Both Mac executables passed
+version and demo-JSON smoke checks after that installation; Intel used Rosetta.
+The Linux binaries were not executed in this Mac-hosted check; their separate
+packaged runtime evidence is recorded above.
+
+`output/validation/preview2-homebrew-install.json` binds those results to the
+archive and executable hashes. This is not evidence for the full `brew install`,
+linking, upgrade, uninstall or `brew test` lifecycle. No tap was registered or
+published, and no global installation or terminal preference was changed.
+See [release preparation](RELEASING.md#prepare-a-homebrew-tap-formula).
+
+A bounded credential-pattern scan inspected 498 text blobs reachable from local
+Git refs. Its two matches were dummy credential-bearing URLs in NRP rejection
+tests, not live credentials. No private Tailscale route or absolute Mac home path
+matched. This is not a comprehensive secret audit. The user's UCSC username
+was found in test and validation documents/history. The user asked to remove it
+before publication; the current files now use a synthetic `researcher` identity.
+History cleanup and replacement archives are required before public distribution.
+The repository remains private. The user selected MIT for code and reserved
+artwork terms for Chip; both are now included by the packaging tools.
+
+The 14:55 PDT read of node-24 again showed all four P100 GPUs allocated; no new
+GPU probe was submitted. Evidence is retained in
+`output/validation/oct11-gpu-capacity-distribution.json` and
+`output/validation/publication-history-scan.json`.

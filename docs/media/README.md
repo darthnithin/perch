@@ -1,5 +1,9 @@
 # Workspace preview assets
 
+The interface code is MIT licensed. Chip artwork reproduced in these previews
+remains covered by the [reserved artwork terms](../../assets/bird/LICENSE),
+including permission to share credited Perch screenshots and recordings.
+
 `workspace.gif` captures the real demo TUI through a PTY: 64 samples at 20 ms,
 then rasterizes its cells with installed Ioskeley regular/bold through macOS
 CoreText. Font size and line spacing come from the approved Terminal profile

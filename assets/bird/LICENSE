@@ -1,0 +1,21 @@
+Chip artwork notice
+
+Copyright (c) 2026 Nithin. All rights reserved except as expressly permitted below.
+
+The Chip character artwork, sprites, animations, visual designs and their
+rendered reproductions are excluded from Perch's MIT software license. This
+includes the PNG and GIF files in this directory, Chip artwork displayed by
+the terminal renderer, and Chip artwork in documentation images. Source code,
+including drawing and rendering tools, remains under the root MIT license;
+that license does not grant rights to the resulting Chip artwork or design.
+
+You may copy the artwork as needed to build and run Perch, and redistribute
+unchanged official Perch source or binary packages with the included artwork
+and this notice. You may share screenshots or recordings of Perch for
+documentation, tutorials, reviews and discussion, with credit to Perch.
+
+Separate reuse, modification or redistribution of Chip artwork, including use
+as a mascot, logo, merchandise or artwork for another project, requires prior
+permission. Contact the maintainer through https://github.com/darthnithin/perch.
+
+These permissions do not imply endorsement by the Perch maintainer.

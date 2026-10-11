@@ -43,7 +43,8 @@ It regenerates sprites and preview images in this directory, preserving the sepa
 
 The approved files were copied from the original design workspace and checked byte-for-byte using SHA-256. Only the preview's link back to the discarded first-pass comparison was removed. Original design files remain in the source workspace.
 
-No font files are bundled. An overall project license has not yet been selected.
+No font files are bundled. Software is covered by the root MIT license;
+Chip artwork is reserved under the [artwork terms](LICENSE).
 
 ## Separate terminal artwork
 

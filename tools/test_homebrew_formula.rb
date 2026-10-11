@@ -46,7 +46,7 @@ results = []
         Dir.chdir(stage) { formula.install }
         raise "Binary changed" unless Digest::SHA256.file(prefix/"bin/perch").hexdigest == binary_hash
         raise "Missing executable mode" unless (prefix/"bin/perch").executable?
-        %w[README.md docs/GUIDE.md docs/media/workspace.gif
+        %w[README.md LICENSE assets/bird/LICENSE docs/GUIDE.md docs/media/workspace.gif
            docs/terminal/Perch-Ioskeley.terminal assets/bird/terminal-running-strip.png
            THIRD_PARTY_NOTICES.md third_party/manifest.json].each do |path|
           raise "Missing bundled #{path}" unless (formula.doc/path).file?

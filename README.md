@@ -36,8 +36,8 @@ alongside your work. Turn on reduced motion whenever you prefer.
 OpenSSH is needed only when connecting to Hummingbird.
 
 Download the matching archive from [GitHub Releases](https://github.com/darthnithin/perch/releases).
-The current `v0.1.0-preview.2` is a private draft, visible to repository maintainers;
-a public download and Homebrew tap are not published yet.
+The next preview is being prepared for distribution. Downloads and a Homebrew
+tap are not published yet; release preparation does not make those links live.
 
 | Computer | Archive suffix |
 | --- | --- |
@@ -123,5 +123,10 @@ with Ioskeley at 12 pt and 0.90 line spacing through macOS CoreText.
 [View the still image](docs/media/workspace.png). Native appearance depends on your terminal. Hummingbird is the active
 product scope; existing [NRP experiments](docs/NRP.md) are preserved but deferred.
 
-Private preview. A public project/artwork license has not been selected.
+## License
+
+Perch's code and documentation are [MIT licensed](LICENSE).
+**Chip's artwork is reserved**, with permission to build/run Perch, redistribute
+unchanged official packages, and share credited screenshots or recordings.
+Separate reuse of Chip requires permission; see the [artwork terms](assets/bird/LICENSE).
 Dependency licenses and notices are included in [third-party notices](THIRD_PARTY_NOTICES.md).
