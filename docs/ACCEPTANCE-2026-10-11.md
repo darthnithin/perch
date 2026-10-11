@@ -36,17 +36,21 @@ In the supplied Ioskeley profile, the user confirmed:
 3. With `--notify desktop`, Activity recorded test job **810406** completing.
 4. Connection showed desktop alerts enabled, without a delivery error.
 5. The completion message reached **Notification Center**, attributed to
-   **Script Editor**. No pop-up banner was observed in the initial check.
+   **Script Editor**. After enabling Banners for Script Editor, the user confirmed
+   seeing the pop-up completion banner for repeat job **810452**.
+6. Pressing `c` returned cleanly to Perch without an authentication prompt.
 
 Job 810406 used one CPU and 128 MiB, completed 0:0 in 61 seconds, and printed the
 expected marker. Its two temporary log files and directory were removed after
 collection. This verifies a real completion notification reaching Notification
-Center; it does not establish banner visibility under every notification/Focus
-setting, nor failure-banner delivery. The user is choosing whether to enable
-banners and repeat that part of the check.
+Center. Repeat job 810452 also completed 0:0 in 61 seconds; its expected output
+was verified and temporary files were removed. The user saw its completion
+banner. This establishes banner delivery under the tested settings, not every
+notification/Focus configuration or failure-banner delivery.
 
 The successful connection does not establish that a password or MFA prompt was
-shown. Actual interactive reconnect/prompt handling remains unverified.
+shown. Normal reconnect and screen restoration were user-verified; expired
+credentials and actual password/MFA prompt handling remain unverified.
 
 ## Wing motion remains under review
 
